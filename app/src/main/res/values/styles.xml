@@ -8,13 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="text_describe" >
+    <style name="text_describe">
         <!-- Customize your theme here. -->
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:textSize">12sp</item>
         <item name="android:gravity">center</item>
 
+    </style>
+
+    <style name="AnimationPreview">
+        <item name="android:windowEnterAnimation">@anim/down</item>
+        <item name="android:windowExitAnimation">@anim/up</item>
+    </style>
+
+    <style name="AnimationPreview2">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_top</item>
     </style>
 
 </resources>
