@@ -15,7 +15,6 @@ import com.example.admin.projecttest.R;
  */
 
 public class PopupWindowDown3 extends PopupWindow {
-
     public PopupWindowDown3(Activity context, View view) {
         super(context);
         initPopupWindowStyle(context, view);
