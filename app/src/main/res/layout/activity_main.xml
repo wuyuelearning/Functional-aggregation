@@ -11,6 +11,7 @@
         android:id="@+id/text1"
         android:text="下拉列表"
         style="@style/text_describe"
+
         />
 
 
