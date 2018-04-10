@@ -1,5 +1,6 @@
 package Common;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -29,6 +30,9 @@ public class PopupWindowDown extends PopupWindow implements View.OnClickListener
     private TextView rights_coupons;
 
     private Context mContext;
+
+    private boolean openAlpha;
+    private ValueAnimator valueAnimator;
 
 
 
@@ -75,7 +79,39 @@ public class PopupWindowDown extends PopupWindow implements View.OnClickListener
     }
 
     public void showPopupWindow(View v) {
+        startAlphaAnim();
         this.showAsDropDown(v);
+    }
+
+    private void startAlphaAnim(){
+        if(!openAlpha){
+            return ;
+        }
+        if(valueAnimator != null){
+            valueAnimator.start();
+        }
+
+        valueAnimator = new ValueAnimator();
+        valueAnimator.setDuration(300);
+        //  设置动画变化浮动值
+        valueAnimator.setFloatValues(0,128);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int alpha = (int) animation.getAnimatedValue();
+                getBackground().setAlpha(alpha);
+            }
+        });
+        valueAnimator.start();
+
+    }
+
+    // 是否打开设置背景色
+    public void setOpenAlpha(boolean b){
+        openAlpha = b;
+        if(openAlpha){
+            setBackgroundDrawable(new ColorDrawable(0xff000000));
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package Common;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
@@ -23,6 +24,8 @@ public class PopupWindowDown2 extends PopupWindow {
     private View rootView;
     private Animation inAnima, outAnima;
     private int height;
+    private boolean openAlpha;
+    private ValueAnimator valueAnimator;
 
     public PopupWindowDown2(Context context, View view, Animation inAnima, Animation outAnima) {
         super(context);
@@ -71,30 +74,67 @@ public class PopupWindowDown2 extends PopupWindow {
 
     @Override
     public void showAsDropDown(View anchor) {
+        startAlphaAnim();
         super.showAsDropDown(anchor);
         rootView.startAnimation(inAnima);
     }
 
     @Override
     public void showAsDropDown(View anchor, int xoff, int yoff) {
+        startAlphaAnim();
         super.showAsDropDown(anchor,xoff,yoff);
         rootView.startAnimation(inAnima);
     }
 
     @Override
     public void showAsDropDown(View anchor, int xoff, int yoff, int gravity) {
+        startAlphaAnim();
         super.showAsDropDown(anchor, xoff, yoff, gravity);
         rootView.startAnimation(inAnima);
     }
 
     @Override
     public void showAtLocation(View parent, int gravity, int x, int y) {
+        startAlphaAnim();
         super.showAtLocation(parent, gravity, x, y);
         rootView.startAnimation(inAnima);
     }
 
+    private void startAlphaAnim(){
+        if(!openAlpha){
+            return ;
+        }
+        if(valueAnimator != null){
+            valueAnimator.start();
+        }
+
+        valueAnimator = new ValueAnimator();
+        valueAnimator.setDuration(300);
+        //  设置动画变化浮动值
+        valueAnimator.setFloatValues(0,128);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int alpha = (int) animation.getAnimatedValue();
+                getBackground().setAlpha(alpha);
+            }
+        });
+        valueAnimator.start();
+
+    }
+
+    // 是否打开设置背景色
+    public void setOpenAlpha(boolean b){
+        openAlpha = b;
+        if(openAlpha){
+            setBackgroundDrawable(new ColorDrawable(0xff000000));
+        }
+    }
+
+    
     public void showPopupWindow(View v) {
         this.showAsDropDown(v);
+        startAlphaAnim();
     }
     @Override
     public void dismiss() {

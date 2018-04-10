@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,10 +19,10 @@ import Common.PopupWindowDown3;
 import static android.view.View.inflate;
 
 /**
- * Created by admin on 2018/4/9.
+ * Created by wuyue on 2018/4/9.
  */
 
-public class FirstFragment extends Fragment implements View.OnClickListener {
+public class PopupWindowFragment extends Fragment implements View.OnClickListener {
     View mRootView;
     Context mContext;
 
@@ -64,16 +63,16 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         popupWindowClick(v);
-        couponsTyoeItemClick(v);
+        couponsTypeItemClick(v);
     }
 
     // 点击标题触发弹窗
     private void popupWindowClick(View v) {
         switch (v.getId()) {
             case R.id.all_coupons_type: {
-                //usePopupwindow(v);
-                 usePopupwindow2(v);
-//                usePopupwindow3(v);
+//                usePopupwindow(v);
+//                 usePopupwindow2(v);
+                usePopupwindow3(v);
             }
             break;
             case R.id.coupon_states: {
@@ -84,7 +83,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     }
 
     // 弹窗中的填充布局点击监听
-    private void couponsTyoeItemClick(View v) {
+    private void couponsTypeItemClick(View v) {
         switch (v.getId()) {
             case R.id.all_coupons: {
                 Toast.makeText(mContext, "all_coupons", Toast.LENGTH_SHORT).show();
@@ -112,12 +111,14 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
 
         popupWindowDown = new PopupWindowDown(getActivity());
         popupWindowDown.showPopupWindow(v); // 弹窗入口
+        popupWindowDown.setOpenAlpha(true); //  设置颜色渐变
     }
 
     private void usePopupwindow2(View v) {
         View popView = inflate(getActivity(), R.layout.popup_window_fill, null);
         popupWindowDown2 = new PopupWindowDown2(getActivity(), popView);
         popupWindowDown2.showPopupWindow(v);   // 弹窗入口
+        popupWindowDown2.setOpenAlpha(true); //  设置颜色渐变
         initItemView(popView);
     }
 
@@ -125,6 +126,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
         View popView = inflate(getActivity(), R.layout.popup_window_fill, null);
         popupWindowDown3 = new PopupWindowDown3(getActivity(), popView);
         popupWindowDown3.showPopupWindow(v); // 弹窗入口
+        popupWindowDown3.setOpenAlpha(true);
         initItemView(popView);
     }
 

@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 
 import android.support.v7.app.AppCompatActivity;
 
-import Fragment.FirstFragment;
+import Fragment.PopupWindowFragment;
 
 /**
  * Created by admin on 2018/4/9.
@@ -31,10 +31,10 @@ public class ContainerActivity extends AppCompatActivity {
     }
 
     private void initFragment(String choice) {
-        FirstFragment fragment = null;
+        PopupWindowFragment fragment = null;
         switch (choice) {
             case "first":
-                fragment = new FirstFragment();
+                fragment = new PopupWindowFragment();
                 break;
         }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
