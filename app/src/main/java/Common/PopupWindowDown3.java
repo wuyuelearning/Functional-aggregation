@@ -3,6 +3,7 @@ package Common;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -36,8 +37,7 @@ public class PopupWindowDown3 extends PopupWindow {
         // 设置弹窗填充布局
         setContentView(view);
 
-        getScreenWidthHeight1(context);
-//        getScreenWidthHeight2(context);
+        getScreenWidthHeight4(context);
 
         // 设置弹窗的宽
         setWidth(width / 2 - 100);
@@ -106,13 +106,25 @@ public class PopupWindowDown3 extends PopupWindow {
         }
     }
 
-    private void getScreenWidthHeight1(Activity context) {
 
-        width = context.getWindowManager().getDefaultDisplay().getWidth();
-        height = context.getWindowManager().getDefaultDisplay().getHeight();
+    /**
+     * @param context 获得Activity的context
+     */
+    private void getScreenWidthHeight1(Activity context) {
+        WindowManager wm = context.getWindowManager();
+        width = wm.getDefaultDisplay().getWidth();
+        height = wm.getDefaultDisplay().getHeight();
     }
 
-    private void getScreenWidthHeight2(Activity context) {
+    private  void getScreenWidthHeight2 (Activity context){
+        WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
+        width = wm.getDefaultDisplay().getWidth();
+        height = wm.getDefaultDisplay().getHeight();
+
+    }
+
+
+    private void getScreenWidthHeight3(Activity context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
@@ -131,5 +143,31 @@ public class PopupWindowDown3 extends PopupWindow {
         Log.d("h_bl", "屏幕密度dpi（120 / 160 / 240）：" + densityDpi);
         Log.d("h_bl", "屏幕宽度（dp）：" + screenWidth);
         Log.d("h_bl", "屏幕高度（dp）：" + screenHeight);
+
+
     }
+
+    private void getScreenWidthHeight4(Activity context) {
+        Resources resources = context.getResources();
+        DisplayMetrics dc = resources.getDisplayMetrics();
+
+        width = dc.widthPixels;
+        height = dc.heightPixels;
+
+         float density = dc.density;
+         float densityDpi = dc.densityDpi;
+
+
+        int screenWidth = (int)(width/density);
+        int screenHeight= (int)(height/density);
+
+        Log.d("h_bl", "屏幕宽度（像素）：" + dc.widthPixels);
+        Log.d("h_bl", "屏幕高度（像素）：" + dc.heightPixels);
+        Log.d("h_bl", "屏幕密度（0.75 / 1.0 / 1.5）：" + density);
+        Log.d("h_bl", "屏幕密度dpi（120 / 160 / 240）：" + densityDpi);
+        Log.d("h_bl", "屏幕宽度（dp）：" + screenWidth);
+        Log.d("h_bl", "屏幕高度（dp）：" + screenHeight);
+    }
+
+
 }
