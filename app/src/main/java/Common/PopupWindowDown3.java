@@ -3,16 +3,15 @@ package Common;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.example.admin.projecttest.R;
+
+import Utils.GetScreenWidthHeight;
 
 /**
  * Created by wuyue on 2018/4/9.
@@ -28,17 +27,21 @@ public class PopupWindowDown3 extends PopupWindow {
     private int width;
     private int height;
 
+    private Activity mContext;
+
+    private GetScreenWidthHeight wh = new GetScreenWidthHeight();
+
     public PopupWindowDown3(Activity context, View view) {
         super(context);
+        this.mContext = context;
         initPopupWindowStyle(context, view);
     }
 
     private void initPopupWindowStyle(Activity context, View view) {
         // 设置弹窗填充布局
         setContentView(view);
-
-        getScreenWidthHeight4(context);
-
+        // 计算屏幕宽高
+        getScreenWidthHeight(context, 1);
         // 设置弹窗的宽
         setWidth(width / 2 - 100);
         // 设置弹窗的高
@@ -58,7 +61,8 @@ public class PopupWindowDown3 extends PopupWindow {
     }
 
     public void showPopupWindow(View v) {
-        startAlphaAnim();
+//        startAlphaAnim();
+        setBackgroundAlpha(0.5f);
         this.showAsDropDown(v);
     }
 
@@ -72,6 +76,7 @@ public class PopupWindowDown3 extends PopupWindow {
 
     @Override
     public void showAsDropDown(View anchor, int xoff, int yoff) {
+//        startAlphaAnim();
         super.showAsDropDown(anchor, xoff, yoff);
     }
 
@@ -82,7 +87,6 @@ public class PopupWindowDown3 extends PopupWindow {
         if (valueAnimator != null) {
             valueAnimator.start();
         }
-
         valueAnimator = new ValueAnimator();
         valueAnimator.setDuration(300);
         //  设置动画变化浮动值
@@ -90,84 +94,48 @@ public class PopupWindowDown3 extends PopupWindow {
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                int alpha = (int) animation.getAnimatedValue();
+                int alpha = (int) ((float) animation.getAnimatedValue());
                 getBackground().setAlpha(alpha);
             }
         });
         valueAnimator.start();
-
     }
 
     // 是否打开设置背景色
     public void setOpenAlpha(boolean b) {
         openAlpha = b;
         if (openAlpha) {
-            setBackgroundDrawable(new ColorDrawable(0xff000000));
+            setBackgroundDrawable(new ColorDrawable(0xff112233));
         }
     }
 
 
     /**
-     * @param context 获得Activity的context
+     * 当弹窗打开时，设置这个界面背景变暗
+     *
+     * @param alpha 设置透明度
      */
-    private void getScreenWidthHeight1(Activity context) {
-        WindowManager wm = context.getWindowManager();
-        width = wm.getDefaultDisplay().getWidth();
-        height = wm.getDefaultDisplay().getHeight();
-    }
-
-    private  void getScreenWidthHeight2 (Activity context){
-        WindowManager wm = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
-        width = wm.getDefaultDisplay().getWidth();
-        height = wm.getDefaultDisplay().getHeight();
+    private void setBackgroundAlpha(float alpha) {
+        WindowManager.LayoutParams lp = mContext.getWindow().getAttributes();
+        lp.alpha = alpha;
+        mContext.getWindow().setAttributes(lp);
+        mContext.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
 
     }
 
-
-    private void getScreenWidthHeight3(Activity context) {
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics dm = new DisplayMetrics();
-        wm.getDefaultDisplay().getMetrics(dm);
-
-        width = dm.widthPixels;
-        height = dm.heightPixels;
-        float density = dm.density;
-        float densityDpi = dm.densityDpi;
-
-        int screenWidth = (int) (width / density);
-        int screenHeight = (int) (height / density);
-
-        Log.d("h_bl", "屏幕宽度（像素）：" + width);
-        Log.d("h_bl", "屏幕高度（像素）：" + height);
-        Log.d("h_bl", "屏幕密度（0.75 / 1.0 / 1.5）：" + density);
-        Log.d("h_bl", "屏幕密度dpi（120 / 160 / 240）：" + densityDpi);
-        Log.d("h_bl", "屏幕宽度（dp）：" + screenWidth);
-        Log.d("h_bl", "屏幕高度（dp）：" + screenHeight);
-
-
+    /**
+     * @param context Activity 的context
+     * @param i       选择第几种计算屏幕宽度的方式
+     */
+    private void getScreenWidthHeight(Activity context, int i) {
+        wh.selectFunc(context, i);
+        width = wh.getScreenWidth();
+        height = wh.getScreenHeight();
     }
 
-    private void getScreenWidthHeight4(Activity context) {
-        Resources resources = context.getResources();
-        DisplayMetrics dc = resources.getDisplayMetrics();
-
-        width = dc.widthPixels;
-        height = dc.heightPixels;
-
-         float density = dc.density;
-         float densityDpi = dc.densityDpi;
-
-
-        int screenWidth = (int)(width/density);
-        int screenHeight= (int)(height/density);
-
-        Log.d("h_bl", "屏幕宽度（像素）：" + dc.widthPixels);
-        Log.d("h_bl", "屏幕高度（像素）：" + dc.heightPixels);
-        Log.d("h_bl", "屏幕密度（0.75 / 1.0 / 1.5）：" + density);
-        Log.d("h_bl", "屏幕密度dpi（120 / 160 / 240）：" + densityDpi);
-        Log.d("h_bl", "屏幕宽度（dp）：" + screenWidth);
-        Log.d("h_bl", "屏幕高度（dp）：" + screenHeight);
+    @Override
+    public void dismiss() {
+        setBackgroundAlpha(1.0f);
+        super.dismiss();
     }
-
-
 }
