@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
-
+import static Utils.COMMONVALUE.*;
 /**
  * Created by wuyue on 2018/4/11.
  */
@@ -16,12 +16,6 @@ public class GetScreenWidthHeight {
     private int width;
     private int height;
     private Activity context;
-
-    private static final int GET_SCREEN_WH_1 = 1;
-    private static final int GET_SCREEN_WH_2 = 2;
-    private static final int GET_SCREEN_WH_3 = 3;
-    private static final int GET_SCREEN_WH_4 = 4;
-
 
     private void getScreenWidthHeight1() {
         WindowManager wm = context.getWindowManager();

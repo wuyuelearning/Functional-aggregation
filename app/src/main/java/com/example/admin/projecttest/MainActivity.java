@@ -5,11 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import static Utils.COMMONVALUE.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String FRAGMENT_TYPE_1= "PopupWindowFragment";
-    private static final String FRAGMENT_TYPE_2= "ListViewAdapterFragment";
-    private static final String FRAGMENT_TYPE_3= "RecycleViewAdapterFragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

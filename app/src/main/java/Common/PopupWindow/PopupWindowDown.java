@@ -46,8 +46,6 @@ public class PopupWindowDown extends PopupWindow implements View.OnClickListener
         initPopupWindowStyle(context);
     }
 
-
-
     private void initPopupWindowStyle(Activity context) {
         int width = context.getWindowManager().getDefaultDisplay().getWidth();
         int height = context.getWindowManager().getDefaultDisplay().getHeight();

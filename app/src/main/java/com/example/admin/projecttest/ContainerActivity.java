@@ -13,15 +13,13 @@ import Fragment.RecycleViewAdapterFragment;
 
 import android.support.v4.app.Fragment;
 
+import static Utils.COMMONVALUE.*;
+
 /**
  * Created by wuyue on 2018/4/9.
  */
 
 public class ContainerActivity extends AppCompatActivity {
-
-    private static final String FRAGMENT_TYPE_1= "PopupWindowFragment";
-    private static final String FRAGMENT_TYPE_2= "ListViewAdapterFragment";
-    private static final String FRAGMENT_TYPE_3= "RecycleViewAdapterFragment";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

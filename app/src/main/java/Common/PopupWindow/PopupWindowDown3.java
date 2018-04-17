@@ -12,6 +12,9 @@ import com.example.admin.projecttest.R;
 
 import Utils.GetScreenWidthHeight;
 
+import static Utils.COMMONVALUE.*;
+
+
 /**
  * Created by wuyue on 2018/4/9.
  * 在第一个控件PopupWindowDown的基础上参考PopupWindowDown2
@@ -28,10 +31,6 @@ public class PopupWindowDown3 extends PopupWindow {
     private GetScreenWidthHeight wh = new GetScreenWidthHeight();
 
 
-    private static final int GET_SCREEN_WH_1 = 1;
-    private static final int GET_SCREEN_WH_2 = 2;
-    private static final int GET_SCREEN_WH_3 = 3;
-    private static final int GET_SCREEN_WH_4 = 4;
 
     public PopupWindowDown3(Activity context, View view) {
         super(context);

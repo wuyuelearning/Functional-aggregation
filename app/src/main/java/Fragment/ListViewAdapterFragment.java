@@ -24,6 +24,8 @@ import Common.ListViewAdapter.ListViewAdapter2;
 import Common.ListViewAdapter.ListViewAdapter3;
 import Common.ListViewAdapter.ViewHolder;
 
+import static Utils.COMMONVALUE.*;
+
 /**
  * Created by wuyue on 2018/4/12.
  * <p>
@@ -38,12 +40,6 @@ public class ListViewAdapterFragment extends Fragment {
     private ListView mListView;
     private BaseAdapter mListViewAdapter;
     private List<String> mData;
-
-
-    private static final int SELECT_ADAPTER_1 = 1;
-    private static final int SELECT_ADAPTER_2 = 2;
-    private static final int SELECT_ADAPTER_3 = 3;
-    private static final int SELECT_ADAPTER_4 = 4;
 
     @Nullable
     @Override

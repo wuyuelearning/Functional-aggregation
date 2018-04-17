@@ -25,6 +25,7 @@ import Common.RecycleViewAdapter.ChatAdapter;
 import Common.RecycleViewAdapter.ChatMessage;
 import Common.RecycleViewAdapter.RecycleViewCommonAdapter;
 import Common.RecycleViewAdapter.ViewHolder;
+import static Utils.COMMONVALUE.*;
 
 /**
  * Created by wuyue on 2018/4/13.
@@ -45,9 +46,6 @@ public class RecycleViewAdapterFragment extends Fragment {
     private List<String> mData;
     private RecyclerView mRecycleView;
     private ArrayList<ChatMessage> mDatas = new ArrayList<>();
-    // 选择RecycleView类型 ：SINGLE_ITEM 单种类型的Item  MULTI_ITEM ： 多种类型的Item
-    private static final String SINGLE_ITEM = "single_item";
-    private static final String MULTI_ITEM = "multi_item";
 
     @Nullable
     @Override
