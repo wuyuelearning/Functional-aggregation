@@ -8,13 +8,20 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import Fragment.PopupWindowFragment;
+import Fragment.ListViewAdapterFragment;
+import Fragment.RecycleViewAdapterFragment;
+
+import android.support.v4.app.Fragment;
 
 /**
- * Created by admin on 2018/4/9.
+ * Created by wuyue on 2018/4/9.
  */
 
 public class ContainerActivity extends AppCompatActivity {
 
+    private static final String FRAGMENT_TYPE_1= "PopupWindowFragment";
+    private static final String FRAGMENT_TYPE_2= "ListViewAdapterFragment";
+    private static final String FRAGMENT_TYPE_3= "RecycleViewAdapterFragment";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,15 +38,20 @@ public class ContainerActivity extends AppCompatActivity {
     }
 
     private void initFragment(String choice) {
-        PopupWindowFragment fragment = null;
+        Fragment fragment = null;
         switch (choice) {
-            case "first":
+            case FRAGMENT_TYPE_1:
                 fragment = new PopupWindowFragment();
+                break;
+            case FRAGMENT_TYPE_2:
+                fragment = new ListViewAdapterFragment();
+                break;
+            case FRAGMENT_TYPE_3:
+                fragment = new RecycleViewAdapterFragment();
                 break;
         }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
-
     }
 }

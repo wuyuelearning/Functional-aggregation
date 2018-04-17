@@ -10,10 +10,11 @@
 
     <style name="text_describe">
         <!-- Customize your theme here. -->
-        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_width">140dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:textSize">12sp</item>
         <item name="android:gravity">center</item>
+        <item name="android:background">#FD3C71</item>
 
     </style>
 

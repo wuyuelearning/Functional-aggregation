@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String FRAGMENT_TYPE_1= "PopupWindowFragment";
+    private static final String FRAGMENT_TYPE_2= "ListViewAdapterFragment";
+    private static final String FRAGMENT_TYPE_3= "RecycleViewAdapterFragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initView() {
         TextView text1 = (TextView) findViewById(R.id.text1);
+        TextView text2 = (TextView) findViewById(R.id.text2);
+        TextView text3 = (TextView) findViewById(R.id.text3);
         text1.setOnClickListener(this);
+        text2.setOnClickListener(this);
+        text3.setOnClickListener(this);
     }
 
     @Override
@@ -26,7 +33,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Bundle bundle = new Bundle();
         switch (v.getId()){
             case R.id.text1:
-                bundle.putString("choice","first");
+                bundle.putString("choice",FRAGMENT_TYPE_1);
+                break;
+            case R.id.text2:
+                bundle.putString("choice",FRAGMENT_TYPE_2);
+                break;
+            case R.id.text3:
+                bundle.putString("choice",FRAGMENT_TYPE_3);
+                break;
         }
         Intent intent = new Intent(this, ContainerActivity.class);
         intent.putExtra("data", bundle);

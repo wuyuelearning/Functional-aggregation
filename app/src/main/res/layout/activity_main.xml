@@ -11,7 +11,27 @@
         android:id="@+id/text1"
         android:text="下拉列表"
         style="@style/text_describe"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
 
+    </View>
+
+    <TextView
+        android:id="@+id/text2"
+        android:text="ListViewaAdapter"
+        style="@style/text_describe"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+
+    </View>
+    <TextView
+        android:id="@+id/text3"
+        android:text="RecycleViewadapter"
+        style="@style/text_describe"
         />
 
 

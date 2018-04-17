@@ -1,8 +1,7 @@
-package Common;
+package Common.PopupWindow;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,16 +19,19 @@ import Utils.GetScreenWidthHeight;
  */
 
 public class PopupWindowDown3 extends PopupWindow {
-
     private boolean openAlpha;
     private ValueAnimator valueAnimator;
-
+    // 屏幕宽高
     private int width;
     private int height;
-
     private Activity mContext;
-
     private GetScreenWidthHeight wh = new GetScreenWidthHeight();
+
+
+    private static final int GET_SCREEN_WH_1 = 1;
+    private static final int GET_SCREEN_WH_2 = 2;
+    private static final int GET_SCREEN_WH_3 = 3;
+    private static final int GET_SCREEN_WH_4 = 4;
 
     public PopupWindowDown3(Activity context, View view) {
         super(context);
@@ -41,7 +43,7 @@ public class PopupWindowDown3 extends PopupWindow {
         // 设置弹窗填充布局
         setContentView(view);
         // 计算屏幕宽高
-        getScreenWidthHeight(context, 1);
+        getScreenWidthHeight(context, GET_SCREEN_WH_1);
         // 设置弹窗的宽
         setWidth(width / 2 - 100);
         // 设置弹窗的高
@@ -53,7 +55,7 @@ public class PopupWindowDown3 extends PopupWindow {
         setOutsideTouchable(true);
         // 刷新
         update();
-        // 设置背景透明度
+        // 设置弹窗背景颜色
         ColorDrawable dw = new ColorDrawable(0xff5899DB);
         setBackgroundDrawable(dw);
         // 设置弹窗动画

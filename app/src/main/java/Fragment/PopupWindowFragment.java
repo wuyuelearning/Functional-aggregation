@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import com.example.admin.projecttest.R;
 
-import Common.PopupWindowDown;
-import Common.PopupWindowDown2;
-import Common.PopupWindowDown3;
+import Common.PopupWindow.PopupWindowDown;
+import Common.PopupWindow.PopupWindowDown2;
+import Common.PopupWindow.PopupWindowDown3;
 
 import static android.view.View.inflate;
 
@@ -46,7 +46,7 @@ public class PopupWindowFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mContext = getActivity();
-        mRootView = inflater.inflate(R.layout.first_fragment, container, false);
+        mRootView = inflater.inflate(R.layout.popupwindow_fragment, container, false);
         initView();
         return mRootView;
     }

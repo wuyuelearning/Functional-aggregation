@@ -8,30 +8,36 @@ import android.util.Log;
 import android.view.WindowManager;
 
 /**
- * Created by admin on 2018/4/11.
+ * Created by wuyue on 2018/4/11.
  */
 
 public class GetScreenWidthHeight {
 
-    int width;
-    int height;
-    Activity context ;
+    private int width;
+    private int height;
+    private Activity context;
 
-    public void getScreenWidthHeight1() {
+    private static final int GET_SCREEN_WH_1 = 1;
+    private static final int GET_SCREEN_WH_2 = 2;
+    private static final int GET_SCREEN_WH_3 = 3;
+    private static final int GET_SCREEN_WH_4 = 4;
+
+
+    private void getScreenWidthHeight1() {
         WindowManager wm = context.getWindowManager();
         width = wm.getDefaultDisplay().getWidth();
         height = wm.getDefaultDisplay().getHeight();
     }
 
 
-    public void getScreenWidthHeight2() {
+    private void getScreenWidthHeight2() {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         width = wm.getDefaultDisplay().getWidth();
         height = wm.getDefaultDisplay().getHeight();
     }
 
 
-    public void getScreenWidthHeight3() {
+    private void getScreenWidthHeight3() {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
@@ -50,11 +56,9 @@ public class GetScreenWidthHeight {
         Log.d("h_bl", "屏幕密度dpi（120 / 160 / 240）：" + densityDpi);
         Log.d("h_bl", "屏幕宽度（dp）：" + screenWidth);
         Log.d("h_bl", "屏幕高度（dp）：" + screenHeight);
-
-
     }
 
-    public void getScreenWidthHeight4() {
+    private void getScreenWidthHeight4() {
         Resources resources = context.getResources();
         DisplayMetrics dc = resources.getDisplayMetrics();
 
@@ -78,27 +82,27 @@ public class GetScreenWidthHeight {
     }
 
 
-
     public int getScreenWidth() {
         return width;
     }
 
-    public int getScreenHeight(){
+    public int getScreenHeight() {
         return height;
     }
-    public void selectFunc(Activity context,int i){
-        this.context=context;
-        switch (i){
-            case 1:
+
+    public void selectFunc(Activity context, int i) {
+        this.context = context;
+        switch (i) {
+            case GET_SCREEN_WH_1:
                 getScreenWidthHeight1();
                 break;
-            case 2:
+            case GET_SCREEN_WH_2:
                 getScreenWidthHeight2();
                 break;
-            case 3:
+            case GET_SCREEN_WH_3:
                 getScreenWidthHeight3();
                 break;
-            case 4:
+            case GET_SCREEN_WH_4:
                 getScreenWidthHeight4();
                 break;
             default:
