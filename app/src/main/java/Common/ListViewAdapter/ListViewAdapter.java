@@ -16,18 +16,17 @@ import java.util.List;
  * <p>
  * 基本的ListView的Adapter方法
  * 通过ViewHolder进行Item的复用
- *
+ * <p>
  * 对于不同布局的ListView，我们会有一个对应的Adapter，在Adapter中又会有一个ViewHolder类来提高效率。
  * 摘自博客 https://blog.csdn.net/lmj623565791/article/details/38902805/
- *
  */
 
 
 public class ListViewAdapter extends BaseAdapter {
 
-    LayoutInflater mLayoutInflater;  // 用于加载Item
-    Context mContext;
-    List<String> mData;
+    private LayoutInflater mLayoutInflater;  // 用于加载Item
+    private Context mContext;
+    private List<String> mData;
 
     public ListViewAdapter(Context context, List<String> data) {
         mLayoutInflater = LayoutInflater.from(context);   //  为了使 ***--- 代码有效 ，在***---上进行（之前）赋值都可以
@@ -51,7 +50,6 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     /**
-     *
      * 获得Item布局
      * 使用本地ViewHolder
      *

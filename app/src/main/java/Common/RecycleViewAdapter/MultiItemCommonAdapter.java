@@ -1,7 +1,6 @@
 package Common.RecycleViewAdapter;
 
 import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -29,13 +28,13 @@ public abstract class MultiItemCommonAdapter<T> extends RecycleViewCommonAdapter
     private MultiItemTypeSupport<T> mMultiItemTypeSupport;
     private List<T> mData;
     private Context mContext;
-    int position;
+    private int position;
 
     public MultiItemCommonAdapter(Context context, List<T> data,
                                   MultiItemTypeSupport<T> multiItemTypeSupport) {
         super(context, -1, data);
-        mContext =context;
-        mData =data;
+        mContext = context;
+        mData = data;
         mMultiItemTypeSupport = multiItemTypeSupport;
     }
 
@@ -44,23 +43,24 @@ public abstract class MultiItemCommonAdapter<T> extends RecycleViewCommonAdapter
      */
     @Override
     public int getItemViewType(int position) {
-        this.position =position;
-        return mMultiItemTypeSupport.getItemViewType(position,mData.get(position) );
+        this.position = position;
+        return mMultiItemTypeSupport.getItemViewType(position, mData.get(position));
     }
 
-    /**生成ViewHolder
+    /**
+     * 生成ViewHolder
      * 根据MultiItemTypeSupport.getLayoutId返回layoutId
      * 根据layoutId生成不同的ViewHolder，MultiType 选择不同的布局Layout文件在于此步
-     *
+     * <p>
      * 在基类RecycleViewCommonAdapter的onBindViewHolder中绑定数据，因为数据在covert已经暴露给外部
      * 所以实际是在外部进行控件初始化，例如： TextView textView = holder.getView(R.id.id_tv_title); ，
      * 不需要具体的写在onBindViewHolder中，所以onBindViewHolder不需要在子类MultiItemCommonAdapter中覆写
      */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        int layoutId =mMultiItemTypeSupport.getLayoutId(viewType);
+        int layoutId = mMultiItemTypeSupport.getLayoutId(viewType);
 //        int layoutId =mMultiItemTypeSupport.getLayoutId(viewType,mData.get(position));   //  第二种写法
-        ViewHolder viewHolder = ViewHolder.getViewHolder(mContext,parent,layoutId);
+        ViewHolder viewHolder = ViewHolder.getViewHolder(mContext, parent, layoutId);
         return viewHolder;
     }
 
@@ -68,7 +68,7 @@ public abstract class MultiItemCommonAdapter<T> extends RecycleViewCommonAdapter
     @Override
     public int getItemCount() {
 
-        if(mMultiItemTypeSupport != null){
+        if (mMultiItemTypeSupport != null) {
             //return mMultiItemTypeSupport.getViewTypeCount();
         }
         return super.getItemCount();

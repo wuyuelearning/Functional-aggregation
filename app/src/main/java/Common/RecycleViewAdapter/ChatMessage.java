@@ -11,8 +11,8 @@ public class ChatMessage {
     private String createDate;
     private boolean isComMeg;
 
-    public final static int RECIEVE_MSG = 0;
-    public final static int SEND_MSG = 1;
+    public static final int RECIEVE_MSG = 0;
+    public static final  int SEND_MSG = 1;
 
     public ChatMessage(int icon, String name, String content,
                        String createDate, boolean isComMeg) {

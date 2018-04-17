@@ -15,16 +15,16 @@ import java.util.List;
  * <p>
  * 实现与ListViewAdapter基本相同
  * 不同点在于使用了通用的ViewHolder
- *
+ * <p>
  * 但是不同的ListView需要不同的Adapter
  * 没有实现Adapter的复用
  */
 
 public class ListViewAdapter2 extends BaseAdapter {
 
-//    private LayoutInflater mLayoutInflater;
-    Context mContext;
-    List<String> mData;
+    //    private LayoutInflater mLayoutInflater;
+    private Context mContext;
+    private List<String> mData;
 
     public ListViewAdapter2(Context context, List<String> data) {
         //  主要目的是为了获得Item，在通用的ViewHolder中用对其进行过滤 找到下一层布局

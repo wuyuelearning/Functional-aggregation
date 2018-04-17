@@ -23,23 +23,23 @@ import static android.view.View.inflate;
  */
 
 public class PopupWindowFragment extends Fragment implements View.OnClickListener {
-    View mRootView;
-    Context mContext;
+    private View mRootView;
+    private Context mContext;
 
     //  弹窗分类
     TextView all_coupons_type;
     TextView coupon_states;
 
+    // 弹窗填充布局--优惠券布局中控件
+    TextView all_coupons;
+    TextView ordinary_coupons;
+    TextView invincible_coupons;
+    TextView rights_coupons;
+
     //  不同弹窗控件 使用第二种、第三种较多
     PopupWindowDown popupWindowDown;
     PopupWindowDown2 popupWindowDown2;
     PopupWindowDown3 popupWindowDown3;
-
-    // 弹窗填充布局--优惠券布局中控件
-    private TextView all_coupons;
-    private TextView ordinary_coupons;
-    private TextView invincible_coupons;
-    private TextView rights_coupons;
 
 
     @Nullable
@@ -71,7 +71,7 @@ public class PopupWindowFragment extends Fragment implements View.OnClickListene
         switch (v.getId()) {
             case R.id.all_coupons_type: {
 //                usePopupwindow(v);
-//                 usePopupwindow2(v);
+//                usePopupwindow2(v);
                 usePopupwindow3(v);
             }
             break;
@@ -108,7 +108,6 @@ public class PopupWindowFragment extends Fragment implements View.OnClickListene
     }
 
     private void usePopupwindow(View v) {
-
         popupWindowDown = new PopupWindowDown(getActivity());
         popupWindowDown.showPopupWindow(v); // 弹窗入口
         popupWindowDown.setOpenAlpha(true); //  设置颜色渐变
@@ -131,6 +130,7 @@ public class PopupWindowFragment extends Fragment implements View.OnClickListene
     }
 
     private void initItemView(View itemView) {
+        
         all_coupons = itemView.findViewById(R.id.all_coupons);
         ordinary_coupons = itemView.findViewById(R.id.ordinary_coupons);
         invincible_coupons = itemView.findViewById(R.id.invincible_coupons);
