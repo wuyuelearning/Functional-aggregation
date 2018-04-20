@@ -93,15 +93,13 @@ public class RecycleViewAdapterFragment extends Fragment {
                         // 用这种方法监听Item中控件  第一次点击监听会被adapter.setOnItemClickListener拦截
                         // 而且之后的监听，在控件的点击事件是由setItemListener()拦截，超出控件的点击事件
                         // 由adapter.setOnItemClickListener拦截
-                        //  写在Fragment里
-//                        setItemListener(holder);
+                        //  监听写在Fragment里
+                        //  setItemListener(holder);
 
-                        // 写到ChatAdapter里面
-//                        adapter.setItemListener(holder);
+                        // 监听最好能写在ChatAdapter里面这样就不会有监听拦截
                     }
                 });
                 mRecycleView.setAdapter(adapter);
-
         }
     }
 
@@ -124,53 +122,46 @@ public class RecycleViewAdapterFragment extends Fragment {
     }
 
     //  点击事件监听
-//    private void setItemListener(ViewHolder holder) {
-////        holder.setOnClickListener(R.id.layout_msg, new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-////                Toast.makeText(mContext, "layout_msg: 1111111111", Toast.LENGTH_SHORT).show();
-////            }
-////        });
-//
-//
-//        if (holder.getLayoutId() == R.layout.main_chat_from_msg) {
-//            holder.setOnClickListener(R.id.chat_from_content, new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(mContext, "chat_from_content: 1111111111", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//            holder.setOnClickListener(R.id.chat_from_icon, new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(mContext, "chat_from_icon: 1111111111", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//            holder.setOnClickListener(R.id.chat_from_name, new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(mContext, "chat_from_name: 1111111111", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        } else if (holder.getLayoutId() == R.layout.main_chat_send_msg) {
-//            holder.setOnClickListener(R.id.chat_send_icon, new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    L.d("from", "chat_send_name");
-//                }
-//            });
-//            holder.setOnClickListener(R.id.chat_send_name, new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    L.d("from", "chat_send_name");
-//                }
-//            });
-//            holder.setOnClickListener(R.id.chat_send_content, new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    L.d("from", "chat_send_name");
-//                }
-//            });
-//        }
-//    }
+    private void setItemListener(ViewHolder holder) {
+
+        if (holder.getLayoutId() == R.layout.main_chat_from_msg) {
+            holder.setOnClickListener(R.id.chat_from_content, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "chat_from_content: 1111111111", Toast.LENGTH_SHORT).show();
+                }
+            });
+            holder.setOnClickListener(R.id.chat_from_icon, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "chat_from_icon: 1111111111", Toast.LENGTH_SHORT).show();
+                }
+            });
+            holder.setOnClickListener(R.id.chat_from_name, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "chat_from_name: 1111111111", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else if (holder.getLayoutId() == R.layout.main_chat_send_msg) {
+            holder.setOnClickListener(R.id.chat_send_icon, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "main_chat_send_msg: 1111111111", Toast.LENGTH_SHORT).show();
+                }
+            });
+            holder.setOnClickListener(R.id.chat_send_name, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "chat_send_name: 1111111111", Toast.LENGTH_SHORT).show();
+                }
+            });
+            holder.setOnClickListener(R.id.chat_send_content, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "chat_send_content: 1111111111", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
 }
