@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.AdapterView;
 import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -51,20 +52,24 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private View mConvertView;
 
     private int mPosition;
+    // 十分关键的一步，需要将LayoutId传出去，特别是有多种LayoutId的时候
     private int mLayoutId;
 
-    public ViewHolder(Context context, View itemView, ViewGroup parent) {
+
+    public ViewHolder(Context context, View itemView, ViewGroup parent, int layoutId) {
         super(itemView);
         mContext = context;
+         //  非常关键，一开始没有取到layoutId，在CharAdapter中getLayoutId无法得到具体LayoutId
+        // 无法分辨出那种LayoutId 加载不出正确的布局，也无法进行 holder.settext 设置点击监听等操作
+        mLayoutId=layoutId;
         mConvertView = itemView;
         mViews = new SparseArray<>();
-
     }
 
 
     public static ViewHolder getViewHolder(Context context, ViewGroup parent, int layoutId) {
         View itemView = LayoutInflater.from(context).inflate(layoutId, parent, false);
-        ViewHolder holder = new ViewHolder(context, itemView, parent);
+        ViewHolder holder = new ViewHolder(context, itemView, parent,layoutId);
         return holder;
     }
 
@@ -106,11 +111,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
     public ViewHolder setOnClickListener(int viewId, View.OnClickListener listener) {
-
         View view = getView(viewId);
         view.setOnClickListener(listener);
         return this;
     }
+
+
 
 
 }

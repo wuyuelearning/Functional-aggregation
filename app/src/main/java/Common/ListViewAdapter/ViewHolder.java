@@ -34,10 +34,12 @@ import android.widget.TextView;
 public class ViewHolder {
     private SparseArray<View> mViews;
     private View mConvertView;
+    private int mLayoutId;
 
     private ViewHolder(Context context, ViewGroup parent, int layoutId, int position) {
         this.mViews = new SparseArray<>();
         mConvertView = LayoutInflater.from(context).inflate(layoutId, parent, false);
+        this.mLayoutId =layoutId;
         // 放入mConvertView
         mConvertView.setTag(this);
     }
@@ -66,6 +68,10 @@ public class ViewHolder {
 
     public View getConvertView() {
         return mConvertView;
+    }
+
+    public int getLayoutId(){
+        return mLayoutId;
     }
 
 

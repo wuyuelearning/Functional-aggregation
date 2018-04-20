@@ -4,15 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.projecttest.R;
 
@@ -25,6 +22,7 @@ import Common.RecycleViewAdapter.ChatAdapter;
 import Common.RecycleViewAdapter.ChatMessage;
 import Common.RecycleViewAdapter.RecycleViewCommonAdapter;
 import Common.RecycleViewAdapter.ViewHolder;
+
 import static Utils.COMMONVALUE.*;
 
 /**
@@ -85,8 +83,25 @@ public class RecycleViewAdapterFragment extends Fragment {
             }
             case MULTI_ITEM:
                 initDatas();
-                ChatAdapter adapter = new ChatAdapter(mContext, mDatas);
+                final ChatAdapter adapter = new ChatAdapter(mContext, mDatas);
+
+                // 对adapter监听 ，对象是LinearLayoutManager 布局
+                adapter.setOnItemClickListener(new ChatAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, ViewHolder holder, int position) {
+                        Toast.makeText(mContext, "out: 1111111111", Toast.LENGTH_SHORT).show();
+                        // 用这种方法监听Item中控件  第一次点击监听会被adapter.setOnItemClickListener拦截
+                        // 而且之后的监听，在控件的点击事件是由setItemListener()拦截，超出控件的点击事件
+                        // 由adapter.setOnItemClickListener拦截
+                        //  写在Fragment里
+//                        setItemListener(holder);
+
+                        // 写到ChatAdapter里面
+//                        adapter.setItemListener(holder);
+                    }
+                });
                 mRecycleView.setAdapter(adapter);
+
         }
     }
 
@@ -107,4 +122,55 @@ public class RecycleViewAdapterFragment extends Fragment {
         }
 
     }
+
+    //  点击事件监听
+//    private void setItemListener(ViewHolder holder) {
+////        holder.setOnClickListener(R.id.layout_msg, new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                Toast.makeText(mContext, "layout_msg: 1111111111", Toast.LENGTH_SHORT).show();
+////            }
+////        });
+//
+//
+//        if (holder.getLayoutId() == R.layout.main_chat_from_msg) {
+//            holder.setOnClickListener(R.id.chat_from_content, new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(mContext, "chat_from_content: 1111111111", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//            holder.setOnClickListener(R.id.chat_from_icon, new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(mContext, "chat_from_icon: 1111111111", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//            holder.setOnClickListener(R.id.chat_from_name, new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(mContext, "chat_from_name: 1111111111", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//        } else if (holder.getLayoutId() == R.layout.main_chat_send_msg) {
+//            holder.setOnClickListener(R.id.chat_send_icon, new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    L.d("from", "chat_send_name");
+//                }
+//            });
+//            holder.setOnClickListener(R.id.chat_send_name, new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    L.d("from", "chat_send_name");
+//                }
+//            });
+//            holder.setOnClickListener(R.id.chat_send_content, new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    L.d("from", "chat_send_name");
+//                }
+//            });
+//        }
+//    }
 }

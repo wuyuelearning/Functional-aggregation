@@ -1,6 +1,7 @@
 package Common.RecycleViewAdapter;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -29,6 +30,9 @@ public abstract class MultiItemCommonAdapter<T> extends RecycleViewCommonAdapter
     private List<T> mData;
     private Context mContext;
     private int position;
+
+    private OnItemClickListener onItemClickListener;
+    private OnItemLongClickListener onItemLongClickListener;
 
     public MultiItemCommonAdapter(Context context, List<T> data,
                                   MultiItemTypeSupport<T> multiItemTypeSupport) {
@@ -61,6 +65,8 @@ public abstract class MultiItemCommonAdapter<T> extends RecycleViewCommonAdapter
         int layoutId = mMultiItemTypeSupport.getLayoutId(viewType);
 //        int layoutId =mMultiItemTypeSupport.getLayoutId(viewType,mData.get(position));   //  第二种写法
         ViewHolder viewHolder = ViewHolder.getViewHolder(mContext, parent, layoutId);
+        setClickListener(parent,viewHolder,viewType);
+        setLongClickListener(parent,viewHolder,viewType);
         return viewHolder;
     }
 
@@ -72,6 +78,50 @@ public abstract class MultiItemCommonAdapter<T> extends RecycleViewCommonAdapter
             //return mMultiItemTypeSupport.getViewTypeCount();
         }
         return super.getItemCount();
+    }
+
+    /**
+     * 添加点击事件
+     *
+     */
+    public interface  OnItemClickListener {
+        void onItemClick(View view , ViewHolder holder, int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public interface OnItemLongClickListener{
+        void onItemLongClick(View view,ViewHolder holder ,int position);
+    }
+
+    public void setOnItemLongClickListener (OnItemLongClickListener onItemLongClickListener){
+        this.onItemLongClickListener = onItemLongClickListener;
+    }
+
+    private void setClickListener(ViewGroup parent , final ViewHolder holder , int viewType){
+        holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onItemClickListener!=null){
+                    int position =holder.getAdapterPosition();
+                    onItemClickListener.onItemClick(v,holder,position);
+                }
+            }
+        });
+    }
+
+    private void setLongClickListener (ViewGroup parent, final ViewHolder holder , int viewType){
+        holder.getConvertView().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if(onItemLongClickListener !=null){
+                    int position = holder.getAdapterPosition();
+                    onItemLongClickListener.onItemLongClick(v,holder,position);
+                }
+                return false;
+            }
+        });
     }
 
 

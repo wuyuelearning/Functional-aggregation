@@ -21,9 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text1 = (TextView) findViewById(R.id.text1);
         TextView text2 = (TextView) findViewById(R.id.text2);
         TextView text3 = (TextView) findViewById(R.id.text3);
+        TextView text4 = (TextView) findViewById(R.id.text4);
         text1.setOnClickListener(this);
         text2.setOnClickListener(this);
         text3.setOnClickListener(this);
+        text4.setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.text3:
                 bundle.putString("choice",FRAGMENT_TYPE_3);
+                break;
+            case R.id.text4:
+                bundle.putString("choice",FRAGMENT_TYPE_4);
                 break;
         }
         Intent intent = new Intent(this, ContainerActivity.class);

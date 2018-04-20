@@ -7,10 +7,7 @@ import android.support.annotation.Nullable;
 
 import android.support.v7.app.AppCompatActivity;
 
-import Fragment.PopupWindowFragment;
-import Fragment.ListViewAdapterFragment;
-import Fragment.RecycleViewAdapterFragment;
-
+import Fragment.*;
 import android.support.v4.app.Fragment;
 
 import static Utils.COMMONVALUE.*;
@@ -46,6 +43,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_3:
                 fragment = new RecycleViewAdapterFragment();
+                break;
+            case FRAGMENT_TYPE_4:
+                fragment = new NotificationFragment();
                 break;
         }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

@@ -22,7 +22,7 @@ public abstract class RecycleViewCommonAdapter<T> extends RecyclerView.Adapter<V
     private List<T> mData;
     private LayoutInflater mLayoutInflater;
     private int mLayoutId;  //  布局Id
-
+    private MultiItemTypeSupport<T> mMultiItemTypeSupport;
     public RecycleViewCommonAdapter(Context context, int layoutId, List<T> data) {
         mLayoutInflater = LayoutInflater.from(context);
         mContext = context;
