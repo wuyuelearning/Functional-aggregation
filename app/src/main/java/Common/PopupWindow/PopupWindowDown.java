@@ -39,7 +39,7 @@ public class PopupWindowDown extends PopupWindow implements View.OnClickListener
     public PopupWindowDown(Activity context) {
         mContext = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View itemView = inflater.inflate(R.layout.popup_window_fill, null);
+        View itemView = inflater.inflate(R.layout.popupwindow_fill, null);
         // 设置弹窗填充布局
         setContentView(itemView);
         initItemView(itemView);

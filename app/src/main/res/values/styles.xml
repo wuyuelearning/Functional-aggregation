@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="text_describe">
+    <style name="text_describe">d
         <!-- Customize your theme here. -->
         <item name="android:layout_width">140dp</item>
         <item name="android:layout_height">40dp</item>
@@ -19,8 +19,8 @@
     </style>
 
     <style name="AnimationPreview">
-        <item name="android:windowEnterAnimation">@anim/down</item>
-        <item name="android:windowExitAnimation">@anim/up</item>
+        <item name="android:windowEnterAnimation">@anim/popupwindow_popup</item>
+        <item name="android:windowExitAnimation">@anim/popupwindow_closed</item>
     </style>
 
     <style name="AnimationPreview2">

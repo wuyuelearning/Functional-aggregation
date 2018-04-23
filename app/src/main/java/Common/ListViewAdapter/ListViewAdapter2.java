@@ -59,6 +59,15 @@ public class ListViewAdapter2 extends BaseAdapter {
      * <p>
      * 最后通过getView(id)获取控件，如果存在则直接返回，否则调用findViewById，返回存储，返回。
      *
+     *
+     * 使用 Adapter 的时候，如果你使用了 ViewHolder 做缓存，在 getView()的
+     * 方法中无论这项 convertView 的每个子控件是否需要设置属性(比如某个 TextView
+     * 设置的文本可能为 null，某个按钮的背景色为透明，某控件的颜色为透明等)，都需
+     * 要为其显式设置属性(Textview 的文本为空也需要设置 setText("")，背景透明也需要
+     * 设置)，否则在滑动的过程中，因为 adapter item 复用的原因，会出现内容的显示错乱。
+     *
+     *
+     *
      * @param position
      * @param convertView
      * @param parent
@@ -68,7 +77,7 @@ public class ListViewAdapter2 extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         //  viewHolder 获取Item对应的控件
-        ViewHolder viewHolder = ViewHolder.getViewHolder(mContext, convertView, parent, R.layout.adapter_item, position);
+        ViewHolder viewHolder = ViewHolder.getViewHolder(mContext, convertView, parent, R.layout.listviewadapter_list_item, position);
         //  通过ViewHolder得到控件，还是从Viewholder拿控件
         TextView textView = viewHolder.getView(R.id.id_tv_title);
         textView.setText(mData.get(position));

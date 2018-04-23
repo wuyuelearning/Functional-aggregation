@@ -73,8 +73,17 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         return holder;
     }
 
-
-    // 通过viewId获取控件
+    /**
+     * 通过viewId获取控件
+     *
+     * 在继承的Adapter中
+     * 使用 Adapter 的时候，如果你使用了 ViewHolder 做缓存，在 getView()的
+     * 方法中无论这项 convertView 的每个子控件是否需要设置属性(比如某个 TextView
+     * 设置的文本可能为 null，某个按钮的背景色为透明，某控件的颜色为透明等)，都需
+     * 要为其显式设置属性(Textview 的文本为空也需要设置 setText("")，背景透明也需要
+     * 设置)，否则在滑动的过程中，因为 adapter item 复用的原因，会出现内容的显示错乱。
+     * --《阿里巴巴Android开发手册》
+     */
 
     public <T extends View> T getView(int layoutId) {
         View view = mViews.get(layoutId);

@@ -45,7 +45,7 @@ public class ListViewAdapterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mContext = getActivity();
-        mRootView = inflater.inflate(R.layout.listview_adapter_fragment, container, false);
+        mRootView = inflater.inflate(R.layout.listviewadapter_fragment_list, container, false);
         initView();
         return mRootView;
     }
@@ -74,7 +74,7 @@ public class ListViewAdapterFragment extends Fragment {
                 break;
             }
             case SELECT_ADAPTER_4: {
-                mListViewAdapter = new ListViewCommonAdapter2<String>(mContext, mData, R.layout.adapter_item) {
+                mListViewAdapter = new ListViewCommonAdapter2<String>(mContext, mData, R.layout.listviewadapter_list_item) {
                     @Override
                     public void covert(ViewHolder viewHolder, String item) {
                         TextView textView = viewHolder.getView(R.id.id_tv_title);

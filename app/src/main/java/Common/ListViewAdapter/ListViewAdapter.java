@@ -63,7 +63,7 @@ public class ListViewAdapter extends BaseAdapter {
         ViewHolder viewHolder = null;
         if (convertView == null) {
             //convertView 获得item布局
-            convertView = mLayoutInflater.inflate(R.layout.adapter_item, parent, false);  // ***---
+            convertView = mLayoutInflater.inflate(R.layout.listviewadapter_list_item, parent, false);  // ***---
             viewHolder = new ViewHolder();
             //  viewholder 获得item中控件的引用
             viewHolder.text = convertView.findViewById(R.id.id_tv_title);

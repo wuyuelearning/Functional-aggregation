@@ -49,7 +49,7 @@ public class RecycleViewAdapterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mContext = getActivity();
-        mRootView = inflater.inflate(R.layout.recycleview_adapter_fragment, container, false);
+        mRootView = inflater.inflate(R.layout.recycleviewadapter_fragment_list, container, false);
         initView();
         return mRootView;
     }
@@ -70,7 +70,7 @@ public class RecycleViewAdapterFragment extends Fragment {
         switch (select) {
             case SINGLE_ITEM: {
                 mData = new ArrayList<>(Arrays.asList("123", "234", "345"));
-                mRecycleView.setAdapter(new RecycleViewCommonAdapter<String>(mContext, R.layout.adapter_item, mData) {
+                mRecycleView.setAdapter(new RecycleViewCommonAdapter<String>(mContext, R.layout.listviewadapter_list_item, mData) {
                     @Override
                     public void convert(ViewHolder holder, String item) {
                         // 通过viewholder根据控件的id拿到控件，然后再进行数据绑定和事件操作，

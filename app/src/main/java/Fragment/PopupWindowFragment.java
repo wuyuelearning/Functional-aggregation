@@ -114,7 +114,7 @@ public class PopupWindowFragment extends Fragment implements View.OnClickListene
     }
 
     private void usePopupwindow2(View v) {
-        View popView = inflate(getActivity(), R.layout.popup_window_fill, null);
+        View popView = inflate(getActivity(), R.layout.popupwindow_fill, null);
         popupWindowDown2 = new PopupWindowDown2(getActivity(), popView);
         popupWindowDown2.showPopupWindow(v);   // 弹窗入口
         popupWindowDown2.setOpenAlpha(true); //  设置颜色渐变
@@ -122,7 +122,7 @@ public class PopupWindowFragment extends Fragment implements View.OnClickListene
     }
 
     private void usePopupwindow3(View v) {
-        View popView = inflate(getActivity(), R.layout.popup_window_fill, null);
+        View popView = inflate(getActivity(), R.layout.popupwindow_fill, null);
         popupWindowDown3 = new PopupWindowDown3(getActivity(), popView);
         popupWindowDown3.showPopupWindow(v); // 弹窗入口
         popupWindowDown3.setOpenAlpha(true);
