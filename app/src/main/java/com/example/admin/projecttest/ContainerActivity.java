@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 
 import android.support.v7.app.AppCompatActivity;
 
+import Fragment.ImageSpanFragment;
 import Fragment.*;
 import android.support.v4.app.Fragment;
 
@@ -47,6 +48,11 @@ public class ContainerActivity extends AppCompatActivity {
             case FRAGMENT_TYPE_4:
                 fragment = new NotificationFragment();
                 break;
+            case FRAGMENT_TYPE_5:
+                fragment = new ImageSpanFragment();
+                break;
+                default:
+                    break;
         }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);

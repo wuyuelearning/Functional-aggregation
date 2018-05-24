@@ -44,6 +44,17 @@
         style="@style/text_describe"
         />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+
+    </View>
+    <TextView
+        android:id="@+id/text5"
+        android:text="ImageSpan"
+        style="@style/text_describe"
+        />
+
 
 
 

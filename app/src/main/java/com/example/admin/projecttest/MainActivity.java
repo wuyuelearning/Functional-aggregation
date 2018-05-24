@@ -28,10 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text2 = (TextView) findViewById(R.id.text2);
         TextView text3 = (TextView) findViewById(R.id.text3);
         TextView text4 = (TextView) findViewById(R.id.text4);
+        TextView text5 = (TextView) findViewById(R.id.text5);
         text1.setOnClickListener(this);
         text2.setOnClickListener(this);
         text3.setOnClickListener(this);
         text4.setOnClickListener(this);
+        text5.setOnClickListener(this);
     }
 
     @Override
@@ -40,20 +42,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.text1:
                 bundle.putString("choice", FRAGMENT_TYPE_1);
-                ToastUtil.showToast(this,"找不到Activiity1",Toast.LENGTH_SHORT);
-
+//                ToastUtil.showToast(this,"找不到Activiity1",Toast.LENGTH_SHORT);
                 break;
             case R.id.text2:
                 bundle.putString("choice", FRAGMENT_TYPE_2);
-                ToastUtil.showToast(this,"找不到Activiity2",Toast.LENGTH_SHORT);
+//                ToastUtil.showToast(this,"找不到Activiity2",Toast.LENGTH_SHORT);
                 break;
             case R.id.text3:
                 bundle.putString("choice", FRAGMENT_TYPE_3);
-                ToastUtil.showToast(this,"找不到Activiity3",Toast.LENGTH_SHORT);
+//                ToastUtil.showToast(this,"找不到Activiity3",Toast.LENGTH_SHORT);
                 break;
             case R.id.text4:
                 bundle.putString("choice", FRAGMENT_TYPE_4);
-                ToastUtil.showToast(this,"找不到Activiity4",Toast.LENGTH_SHORT);
+//                ToastUtil.showToast(this,"找不到Activiity4",Toast.LENGTH_SHORT);
+                break;
+            case R.id.text5:
+                bundle.putString("choice", FRAGMENT_TYPE_5);
+//                ToastUtil.showToast(this,"找不到Activiity5",Toast.LENGTH_SHORT);
                 break;
         }
 

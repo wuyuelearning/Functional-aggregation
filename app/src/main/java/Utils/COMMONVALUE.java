@@ -32,4 +32,5 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_2 = "ListViewAdapterFragment";
     public static final String FRAGMENT_TYPE_3 = "RecycleViewAdapterFragment";
     public static final String FRAGMENT_TYPE_4 = "NotificationFragment";
+    public static final String FRAGMENT_TYPE_5 = "ImageSpanFragment";
 }
