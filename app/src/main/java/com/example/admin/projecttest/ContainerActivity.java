@@ -51,6 +51,9 @@ public class ContainerActivity extends AppCompatActivity {
             case FRAGMENT_TYPE_5:
                 fragment = new ImageSpanFragment();
                 break;
+            case FRAGMENT_TYPE_6:
+                fragment = new DynamicLoadLayoutFragment();
+                break;
                 default:
                     break;
         }

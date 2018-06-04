@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ProjectTest</string>
+    <string name="invincible_coupon_list_title">无敌券（可多选）</string>
+    <string name="invincible_coupon_code_hint">请输入券码</string>
+    <string name="invincible_coupon_code_use_btn">使用</string>
+    <string name="invincible_coupon_item_use_btn">确 定</string>
 </resources>
