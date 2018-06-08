@@ -65,6 +65,16 @@
         android:text="DynamicLoadLayout"
         style="@style/text_describe"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+
+    </View>
+    <TextView
+        android:id="@+id/text7"
+        android:text="MultipleChoiceFragment"
+        style="@style/text_describe"
+        />
 
 
 

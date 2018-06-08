@@ -30,12 +30,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text4 =  findViewById(R.id.text4);
         TextView text5 =  findViewById(R.id.text5);
         TextView text6 =  findViewById(R.id.text6);
+        TextView text7 =  findViewById(R.id.text7);
         text1.setOnClickListener(this);
         text2.setOnClickListener(this);
         text3.setOnClickListener(this);
         text4.setOnClickListener(this);
         text5.setOnClickListener(this);
         text6.setOnClickListener(this);
+        text7.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.text6:
                 bundle.putString("choice", FRAGMENT_TYPE_6);
 //                ToastUtil.showToast(this,"找不到Activiity6",Toast.LENGTH_SHORT);
+                break;
+            case R.id.text7:
+                bundle.putString("choice", FRAGMENT_TYPE_7);
+//                ToastUtil.showToast(this,"找不到Activiity7",Toast.LENGTH_SHORT);
                 break;
         }
 

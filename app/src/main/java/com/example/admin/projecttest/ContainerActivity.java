@@ -54,6 +54,9 @@ public class ContainerActivity extends AppCompatActivity {
             case FRAGMENT_TYPE_6:
                 fragment = new DynamicLoadLayoutFragment();
                 break;
+            case FRAGMENT_TYPE_7:
+                fragment = new MultipleChoiceFragment();
+                break;
                 default:
                     break;
         }
