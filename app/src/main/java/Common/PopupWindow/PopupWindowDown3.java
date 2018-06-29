@@ -42,7 +42,7 @@ public class PopupWindowDown3 extends PopupWindow {
         // 设置弹窗填充布局
         setContentView(view);
         // 计算屏幕宽高
-        getScreenWidthHeight(context, GET_SCREEN_WH_1);
+        getScreenWidthHeight(context, GET_SCREEN_WH_3);
         // 设置弹窗的宽
         setWidth(width / 2 - 100);
         // 设置弹窗的高

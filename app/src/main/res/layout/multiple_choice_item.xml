@@ -10,6 +10,12 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:id="@+id/coupon_item_left_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:orientation="horizontal">
+    <LinearLayout
         android:layout_marginLeft="2dp"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -83,6 +89,7 @@
         android:layout_marginRight="10dp"
         android:src="@drawable/unusable_turn_right"/>
 
+    </LinearLayout>
     <ImageView
         android:id="@+id/iv_use_coupon"
         android:layout_width="0dp"

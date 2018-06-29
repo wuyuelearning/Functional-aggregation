@@ -57,6 +57,12 @@ public class ContainerActivity extends AppCompatActivity {
             case FRAGMENT_TYPE_7:
                 fragment = new MultipleChoiceFragment();
                 break;
+            case FRAGMENT_TYPE_8:
+                fragment = new AnimationFragment();
+                break;
+            case FRAGMENT_TYPE_9:
+                fragment = new QRCodeFragment();
+                break;
                 default:
                     break;
         }

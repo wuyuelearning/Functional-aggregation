@@ -11,9 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.projecttest.R;
+
+import Utils.MyUtils;
 
 
 /**
@@ -22,16 +27,16 @@ import com.example.admin.projecttest.R;
  */
 
 public class ImageSpanFragment extends Fragment {
-
     private View mView;
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.image_span_fragment, container, false);
         mView = view;
+        TextView t = (TextView) mView.findViewById(R.id.tv_icon_behind);
+
         imageSpan();
+
         return view;
     }
 
@@ -41,6 +46,7 @@ public class ImageSpanFragment extends Fragment {
      */
     private void imageSpan() {
         ImageSpan is = new ImageSpan(BitmapFactory.decodeResource(getResources(), R.drawable.help_icon));
+
         String str = "ajefhhfuh weufhquiw ehfuq whef  hquwiadsfasdfasdfasdfasdfehf qwefqwe";
         String space = "";
         str = str + space;
@@ -49,4 +55,6 @@ public class ImageSpanFragment extends Fragment {
         ss.setSpan(is, strLength - 1, strLength, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         ((TextView) mView.findViewById(R.id.tv_icon_behind)).setText(ss.subSequence(0, strLength));
     }
+
+
 }

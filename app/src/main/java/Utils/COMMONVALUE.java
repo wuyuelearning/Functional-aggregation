@@ -35,4 +35,6 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_5 = "ImageSpanFragment";
     public static final String FRAGMENT_TYPE_6 = "DynamicLoadLayoutFragment";
     public static final String FRAGMENT_TYPE_7 = "MultipleChoiceFragment";
+    public static final String FRAGMENT_TYPE_8 = "AnimationFragment";
+    public static final String FRAGMENT_TYPE_9 = "QRCodeFragment";
 }

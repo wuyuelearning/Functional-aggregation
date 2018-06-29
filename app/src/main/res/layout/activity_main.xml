@@ -75,6 +75,26 @@
         android:text="MultipleChoiceFragment"
         style="@style/text_describe"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+
+    </View>
+    <TextView
+        android:id="@+id/text8"
+        android:text="AnimationFragment"
+        style="@style/text_describe"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
+
+    </View>
+    <TextView
+        android:id="@+id/text9"
+        android:text="QRCodeFragment"
+        style="@style/text_describe"
+        />
 
 
 

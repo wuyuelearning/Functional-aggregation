@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.admin.projecttest.R;
 
@@ -30,6 +31,15 @@ public class MultipleChioceAdapter extends RecycleViewCommonAdapter<MultipleChoi
         final ImageView img = holder.getView(R.id.iv_use_coupon);
         SelectButton selectButton = new SelectButton(itemInfo, img);
         holder.getView(R.id.iv_use_coupon).setOnClickListener(selectButton);
+        holder.getView(R.id.coupon_item_left_layout).setOnClickListener(new CouponContent());
+
+    }
+
+    private class CouponContent implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Log.d("MultipleChoiceFragment", "CouponContent");
+        }
     }
 
     private class SelectButton implements View.OnClickListener {
