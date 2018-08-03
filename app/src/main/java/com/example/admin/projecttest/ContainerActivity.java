@@ -63,6 +63,9 @@ public class ContainerActivity extends AppCompatActivity {
             case FRAGMENT_TYPE_9:
                 fragment = new QRCodeFragment();
                 break;
+            case FRAGMENT_TYPE_10:
+                fragment = new ScreenShotFragment();
+                break;
                 default:
                     break;
         }

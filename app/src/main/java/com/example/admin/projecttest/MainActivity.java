@@ -11,6 +11,7 @@ import android.widget.Toast;
 import Utils.ToastUtil;
 
 import static Utils.COMMONVALUE.*;
+import com.example.admin.projecttest.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text7 = (TextView) findViewById(R.id.text7);
         TextView text8 = (TextView) findViewById(R.id.text8);
         TextView text9 = (TextView) findViewById(R.id.text9);
+        TextView text10 = (TextView) findViewById(R.id.text10);
         text1.setOnClickListener(this);
         text2.setOnClickListener(this);
         text3.setOnClickListener(this);
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         text7.setOnClickListener(this);
         text8.setOnClickListener(this);
         text9.setOnClickListener(this);
+        text10.setOnClickListener(this);
     }
 
     @Override
@@ -74,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.text9:
                 bundle.putString("choice", FRAGMENT_TYPE_9);
+                break;
+            case R.id.text10:
+                bundle.putString("choice", FRAGMENT_TYPE_10);
                 break;
         }
 

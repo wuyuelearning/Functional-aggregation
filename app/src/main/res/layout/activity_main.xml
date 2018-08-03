@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.projecttest.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.admin.projecttest.MainActivity">
 
     <TextView
         android:id="@+id/text1"
-        android:text="下拉列表"
         style="@style/text_describe"
-        />
+        android:text="下拉列表" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp">
@@ -20,83 +20,96 @@
 
     <TextView
         android:id="@+id/text2"
-        android:text="ListViewaAdapter"
         style="@style/text_describe"
-        />
+        android:text="ListViewaAdapter" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp">
 
     </View>
+
     <TextView
         android:id="@+id/text3"
-        android:text="RecycleViewadapter"
         style="@style/text_describe"
-        />
+        android:text="RecycleViewadapter" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp">
 
     </View>
+
     <TextView
         android:id="@+id/text4"
-        android:text="设置通知栏"
         style="@style/text_describe"
-        />
+        android:text="设置通知栏" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp">
 
     </View>
+
     <TextView
         android:id="@+id/text5"
-        android:text="ImageSpan"
         style="@style/text_describe"
-        />
+        android:text="ImageSpan" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp">
 
     </View>
+
     <TextView
         android:id="@+id/text6"
-        android:text="DynamicLoadLayout"
         style="@style/text_describe"
-        />
+        android:text="DynamicLoadLayout" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp">
 
     </View>
+
     <TextView
         android:id="@+id/text7"
-        android:text="MultipleChoiceFragment"
         style="@style/text_describe"
-        />
+        android:text="MultipleChoiceFragment" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp">
 
     </View>
+
     <TextView
         android:id="@+id/text8"
-        android:text="AnimationFragment"
         style="@style/text_describe"
-        />
+        android:text="AnimationFragment" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp">
 
     </View>
+
     <TextView
         android:id="@+id/text9"
-        android:text="QRCodeFragment"
         style="@style/text_describe"
-        />
+        android:text="QRCodeFragment" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp">
 
+    </View>
+
+    <TextView
+        android:id="@+id/text10"
+        style="@style/text_describe"
+        android:text="ScreenShotFragment" />
 
 
 </LinearLayout>

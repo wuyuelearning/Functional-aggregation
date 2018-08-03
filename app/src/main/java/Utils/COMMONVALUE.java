@@ -37,4 +37,5 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_7 = "MultipleChoiceFragment";
     public static final String FRAGMENT_TYPE_8 = "AnimationFragment";
     public static final String FRAGMENT_TYPE_9 = "QRCodeFragment";
+    public static final String FRAGMENT_TYPE_10 = "ScreenShotFragment";
 }
