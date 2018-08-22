@@ -50,7 +50,7 @@ public class ImageLoader {
     private static final int CORE_POOL_SIZE = CPU_COUNT + 1;
     private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
     private static final long KEEP_ALIVE = 10L;
-    private static final int TAG_KEY_URI = R.id.fragment_container; // 任意一个id
+    private static final int TAG_KEY_URI = R.id.recycle_view; // 任意一个id
     private static final long DISK_CACHE_SIZE = 1024 * 1024 * 50;
     private static final int IO_BUFFER_SIZE = 8 * 1024;
     private static final int DISK_CACHE_INDEX = 0;
