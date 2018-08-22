@@ -1,5 +1,6 @@
 package com.example.admin.projecttest;
 
+import android.graphics.BitmapFactory;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,6 +66,12 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_10:
                 fragment = new ScreenShotFragment();
+                break;
+            case FRAGMENT_TYPE_11:
+                fragment = new BitmapFragment();
+                break;
+            case FRAGMENT_TYPE_12:
+                fragment = new BitmapWallFragment();
                 break;
                 default:
                     break;
