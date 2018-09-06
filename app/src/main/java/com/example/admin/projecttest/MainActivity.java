@@ -11,6 +11,7 @@ import android.widget.Toast;
 import Utils.ToastUtil;
 
 import static Utils.COMMONVALUE.*;
+
 import com.example.admin.projecttest.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text10 = (TextView) findViewById(R.id.text10);
         TextView text11 = (TextView) findViewById(R.id.text11);
         TextView text12 = (TextView) findViewById(R.id.text12);
+        TextView text13 = (TextView) findViewById(R.id.text13);
         text1.setOnClickListener(this);
         text2.setOnClickListener(this);
         text3.setOnClickListener(this);
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         text10.setOnClickListener(this);
         text11.setOnClickListener(this);
         text12.setOnClickListener(this);
+        text13.setOnClickListener(this);
     }
 
     @Override
@@ -91,6 +94,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.text12:
                 bundle.putString("choice", FRAGMENT_TYPE_12);
                 break;
+            case R.id.text13:
+                bundle.putString("choice", FRAGMENT_TYPE_13);
+                break;
         }
 
         Intent intent = new Intent(this, ContainerActivity.class);
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // 如果一个按钮可以触发两次Toast，都用 ToastUtil.showToast 则只弹出一次,弹出最后执行的toast
             // 如果 其中一次使用ToastUtil.showToast，另一次使用Toast.makeText 则会显示两次的内容
             //Toast.makeText(this, "找不到Activiity", Toast.LENGTH_SHORT).show(); //  方法一
-            ToastUtil.showToast(this,"找不到Activiity",Toast.LENGTH_SHORT);  //  方法二
+            ToastUtil.showToast(this, "找不到Activiity", Toast.LENGTH_SHORT);  //  方法二
 
         }
 

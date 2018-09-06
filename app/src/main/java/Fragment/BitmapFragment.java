@@ -2,9 +2,13 @@ package Fragment;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +36,7 @@ public class BitmapFragment extends Fragment implements View.OnClickListener {
     EditText etReqWidth;
     EditText etReqHeight;
     ImageView ivShowBitmap;
+    TextView tvMultiStyle;
     int clickCount = 0;
 
     @Nullable
@@ -52,12 +57,26 @@ public class BitmapFragment extends Fragment implements View.OnClickListener {
         etReqWidth = (EditText) mView.findViewById(R.id.et_reqwidth);
         etReqHeight = (EditText) mView.findViewById(R.id.et_reqheight);
 
+        tvMultiStyle =(TextView)mView.findViewById(R.id.tv_multi_style);
+        String test = "My text <ul><li>bullet one</li><li>bullet two</li></ul>";
+        tvMultiStyle.setText(Html.fromHtml(test));
 
+        SpannableStringBuilder spannable = new SpannableStringBuilder("Text is spantastic!");
+        spannable.setSpan(
+                Color.RED,
+    /* 起始索引 */ 9, /* 终止索引 */ spannable.length()/2,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannable.setSpan(
+                Color.RED,
+     /* 起始索引 */ spannable.length()/2+1, /* 终止索引 */ spannable.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        tvMultiStyle.setText(spannable);
     }
 
     private void showBitmap() {
-        int reqWidth = 200;
-        int reqHeight = 200;
+        int reqWidth = 100;
+        int reqHeight = 100;
         int res = R.drawable.bitmap1;
         if (!TextUtils.isEmpty(etReqWidth.getText().toString().trim())) {
             reqWidth = Integer.parseInt(etReqWidth.getText().toString().trim());
@@ -92,8 +111,8 @@ public class BitmapFragment extends Fragment implements View.OnClickListener {
         Log.d("BitmapFragment","bitmap"+(clickCount%4+1)+"  byte+++"+bitmap.getByteCount());
         Log.d("BitmapFragment","bitmap"+(clickCount%4+1)+"  w+++"+bitmap.getWidth());
         Log.d("BitmapFragment","bitmap"+(clickCount%4+1)+"  h+++"+bitmap.getHeight());
+        bitmap.recycle();
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

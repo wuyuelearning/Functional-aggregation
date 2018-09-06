@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import Fragment.ImageSpanFragment;
 import Fragment.*;
+import mvp.MVPFragment;
+
 import android.support.v4.app.Fragment;
 
 import static Utils.COMMONVALUE.*;
@@ -72,6 +74,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_12:
                 fragment = new BitmapWallFragment();
+                break;
+            case FRAGMENT_TYPE_13:
+                fragment = new MVPFragment();
                 break;
                 default:
                     break;

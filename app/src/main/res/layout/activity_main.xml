@@ -143,6 +143,17 @@
                 android:id="@+id/text12"
                 style="@style/text_describe"
                 android:text="BitmapWallFragment" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp">
+
+            </View>
+
+            <TextView
+                android:id="@+id/text13"
+                style="@style/text_describe"
+                android:text="MVPFragment" />
+
 
         </LinearLayout>
     </ScrollView>
