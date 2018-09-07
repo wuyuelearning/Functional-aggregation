@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import Fragment.ImageSpanFragment;
 import Fragment.*;
+import bezier.BezierFragment;
 import mvp.MVPFragment;
 
 import android.support.v4.app.Fragment;
@@ -77,6 +78,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_13:
                 fragment = new MVPFragment();
+                break;
+            case FRAGMENT_TYPE_14:
+                fragment = new BezierFragment();
                 break;
                 default:
                     break;

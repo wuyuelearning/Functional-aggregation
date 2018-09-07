@@ -41,4 +41,5 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_11 = "BitmapFragment";
     public static final String FRAGMENT_TYPE_12 = "BitmapWallFragment";
     public static final String FRAGMENT_TYPE_13 = "MVPFragment";
+    public static final String FRAGMENT_TYPE_14 = "BezierFragment";
 }
