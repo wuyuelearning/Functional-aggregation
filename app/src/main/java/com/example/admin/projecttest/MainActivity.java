@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text12 = (TextView) findViewById(R.id.text12);
         TextView text13 = (TextView) findViewById(R.id.text13);
         TextView text14 = (TextView) findViewById(R.id.text14);
+        TextView text15 = (TextView) findViewById(R.id.text15);
         text1.setOnClickListener(this);
         text2.setOnClickListener(this);
         text3.setOnClickListener(this);
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         text12.setOnClickListener(this);
         text13.setOnClickListener(this);
         text14.setOnClickListener(this);
+        text15.setOnClickListener(this);
     }
 
     @Override
@@ -101,6 +103,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.text14:
                 bundle.putString("choice", FRAGMENT_TYPE_14);
+                break;
+            case R.id.text15:
+                bundle.putString("choice", FRAGMENT_TYPE_15);
                 break;
         }
 

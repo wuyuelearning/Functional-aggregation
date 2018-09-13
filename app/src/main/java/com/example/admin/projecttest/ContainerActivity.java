@@ -1,6 +1,5 @@
 package com.example.admin.projecttest;
 
-import android.graphics.BitmapFactory;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import Fragment.ImageSpanFragment;
 import Fragment.*;
 import bezier.BezierFragment;
+import divide_edit_text.DivideEditTextFragment;
 import mvp.MVPFragment;
 
 import android.support.v4.app.Fragment;
@@ -82,8 +82,11 @@ public class ContainerActivity extends AppCompatActivity {
             case FRAGMENT_TYPE_14:
                 fragment = new BezierFragment();
                 break;
-                default:
-                    break;
+            case FRAGMENT_TYPE_15:
+                fragment = new DivideEditTextFragment();
+                break;
+            default:
+                break;
         }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);

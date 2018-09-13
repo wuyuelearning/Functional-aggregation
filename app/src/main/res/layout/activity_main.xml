@@ -161,6 +161,15 @@
                 android:id="@+id/text14"
                 style="@style/text_describe"
                 android:text="BezierFragment" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp">
+            </View>
+
+            <TextView
+                android:id="@+id/text15"
+                style="@style/text_describe"
+                android:text="DivideEditTextFragment" />
 
 
         </LinearLayout>
