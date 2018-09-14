@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,21 @@ import Utils.ToastUtil;
  */
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
+    private static final String TAG = "MainActivity_Tag";
     private List<String> mMenu;
+    private Context mContext;
 
+    //  从Adapter获得Context  ：Context mContext =v.getContext();
+    //  不需要flag标识
     public MenuAdapter(List<String> mList){
         mMenu =mList;
+    }
+    //  从Activity获得Context 需要flag表示
+    // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+    // 否则 会报错
+    public MenuAdapter(List<String> mList,Context context){
+        mMenu =mList;
+        mContext=context;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -31,12 +43,14 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         viewHolder.menuView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context mContext =v.getContext();
+                Context mContext =v.getContext();   //   从Adapter获得Context需加
+                Log.d(TAG,"context    "+mContext.toString());
                 int position =viewHolder.getAdapterPosition();
                 String s =mMenu.get(position);
                 Bundle bundle = new Bundle();
                 bundle.putString("choice",s);
                 Intent intent = new Intent(mContext, ContainerActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );   //   从activity获得Context需加
                 intent.putExtra("data", bundle);
                 //  Activity 间通过隐式 Intent 的跳转，在发出 Intent 之前必须通过 resolveActivity
                 // 检查，避免找不到合适的调用组件，造成 ActivityNotFoundException 的异常。

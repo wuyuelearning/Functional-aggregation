@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import static Utils.COMMONVALUE.*;
 
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
+    private static final String TAG = "MainActivity_Tag";
 
     private List<String> mMenu =new ArrayList<>();
     @Override
@@ -19,13 +21,20 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         initData();
         initView();
+
+
     }
 
     private void initView(){
+        Log.d(TAG,"getApplicationContext "+getApplicationContext().toString());
+        Log.d(TAG,"getApplication "+getApplication().toString());
+        Log.d(TAG,"getBaseContext "+getBaseContext().toString());
         RecyclerView mRecycleView =(RecyclerView)findViewById(R.id.rv_menu);
         GridLayoutManager gridLayoutManager =new GridLayoutManager(this,3);
         mRecycleView.setLayoutManager(gridLayoutManager);
         MenuAdapter menuAdapter = new MenuAdapter(mMenu);
+//        MenuAdapter menuAdapter = new MenuAdapter(mMenu,getApplicationContext());
+
         mRecycleView.setAdapter(menuAdapter);
     }
     private void initData(){
