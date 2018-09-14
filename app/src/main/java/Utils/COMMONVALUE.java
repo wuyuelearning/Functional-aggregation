@@ -28,19 +28,19 @@ public class COMMONVALUE {
     public static final String SINGLE_ITEM = "single_item";
     public static final String MULTI_ITEM = "multi_item";
 
-    public static final String FRAGMENT_TYPE_1 = "PopupWindowFragment";
-    public static final String FRAGMENT_TYPE_2 = "ListViewAdapterFragment";
-    public static final String FRAGMENT_TYPE_3 = "RecycleViewAdapterFragment";
-    public static final String FRAGMENT_TYPE_4 = "NotificationFragment";
-    public static final String FRAGMENT_TYPE_5 = "ImageSpanFragment";
-    public static final String FRAGMENT_TYPE_6 = "DynamicLoadLayoutFragment";
-    public static final String FRAGMENT_TYPE_7 = "MultipleChoiceFragment";
-    public static final String FRAGMENT_TYPE_8 = "AnimationFragment";
-    public static final String FRAGMENT_TYPE_9 = "QRCodeFragment";
-    public static final String FRAGMENT_TYPE_10 = "ScreenShotFragment";
-    public static final String FRAGMENT_TYPE_11 = "BitmapFragment";
-    public static final String FRAGMENT_TYPE_12 = "BitmapWallFragment";
-    public static final String FRAGMENT_TYPE_13 = "MVPFragment";
-    public static final String FRAGMENT_TYPE_14 = "BezierFragment";
-    public static final String FRAGMENT_TYPE_15 = "DivideEditTextFragment";
+    public static final String FRAGMENT_TYPE_1 = "PopupWindow";
+    public static final String FRAGMENT_TYPE_2 = "ListViewAdapter";
+    public static final String FRAGMENT_TYPE_3 = "RecycleViewAdapter";
+    public static final String FRAGMENT_TYPE_4 = "Notification";
+    public static final String FRAGMENT_TYPE_5 = "ImageSpan";
+    public static final String FRAGMENT_TYPE_6 = "DynamicLoadLayout";
+    public static final String FRAGMENT_TYPE_7 = "MultipleChoice";
+    public static final String FRAGMENT_TYPE_8 = "Animation";
+    public static final String FRAGMENT_TYPE_9 = "QRCode";
+    public static final String FRAGMENT_TYPE_10 = "ScreenShot";
+    public static final String FRAGMENT_TYPE_11 = "Bitmap";
+    public static final String FRAGMENT_TYPE_12 = "BitmapWall";
+    public static final String FRAGMENT_TYPE_13 = "MVP";
+    public static final String FRAGMENT_TYPE_14 = "Bezier";
+    public static final String FRAGMENT_TYPE_15 = "DivideEditText";
 }

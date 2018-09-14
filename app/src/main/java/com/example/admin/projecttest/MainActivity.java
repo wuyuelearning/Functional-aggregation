@@ -1,136 +1,48 @@
 package com.example.admin.projecttest;
 
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import Utils.ToastUtil;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import static Utils.COMMONVALUE.*;
 
-import com.example.admin.projecttest.R;
+import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity{
 
+    private List<String> mMenu =new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initData();
         initView();
-
     }
 
-    private void initView() {
-
-        TextView text1 = (TextView) findViewById(R.id.text1);
-        TextView text2 = (TextView) findViewById(R.id.text2);
-        TextView text3 = (TextView) findViewById(R.id.text3);
-        TextView text4 = (TextView) findViewById(R.id.text4);
-        TextView text5 = (TextView) findViewById(R.id.text5);
-        TextView text6 = (TextView) findViewById(R.id.text6);
-        TextView text7 = (TextView) findViewById(R.id.text7);
-        TextView text8 = (TextView) findViewById(R.id.text8);
-        TextView text9 = (TextView) findViewById(R.id.text9);
-        TextView text10 = (TextView) findViewById(R.id.text10);
-        TextView text11 = (TextView) findViewById(R.id.text11);
-        TextView text12 = (TextView) findViewById(R.id.text12);
-        TextView text13 = (TextView) findViewById(R.id.text13);
-        TextView text14 = (TextView) findViewById(R.id.text14);
-        TextView text15 = (TextView) findViewById(R.id.text15);
-        text1.setOnClickListener(this);
-        text2.setOnClickListener(this);
-        text3.setOnClickListener(this);
-        text4.setOnClickListener(this);
-        text5.setOnClickListener(this);
-        text6.setOnClickListener(this);
-        text7.setOnClickListener(this);
-        text8.setOnClickListener(this);
-        text9.setOnClickListener(this);
-        text10.setOnClickListener(this);
-        text11.setOnClickListener(this);
-        text12.setOnClickListener(this);
-        text13.setOnClickListener(this);
-        text14.setOnClickListener(this);
-        text15.setOnClickListener(this);
+    private void initView(){
+        RecyclerView mRecycleView =(RecyclerView)findViewById(R.id.rv_menu);
+        GridLayoutManager gridLayoutManager =new GridLayoutManager(this,3);
+        mRecycleView.setLayoutManager(gridLayoutManager);
+        MenuAdapter menuAdapter = new MenuAdapter(mMenu);
+        mRecycleView.setAdapter(menuAdapter);
     }
-
-    @Override
-    public void onClick(View v) {
-        Bundle bundle = new Bundle();
-        switch (v.getId()) {
-            case R.id.text1:
-                bundle.putString("choice", FRAGMENT_TYPE_1);
-                break;
-            case R.id.text2:
-                bundle.putString("choice", FRAGMENT_TYPE_2);
-                break;
-            case R.id.text3:
-                bundle.putString("choice", FRAGMENT_TYPE_3);
-                break;
-            case R.id.text4:
-                bundle.putString("choice", FRAGMENT_TYPE_4);
-                break;
-            case R.id.text5:
-                bundle.putString("choice", FRAGMENT_TYPE_5);
-                break;
-            case R.id.text6:
-                bundle.putString("choice", FRAGMENT_TYPE_6);
-                break;
-            case R.id.text7:
-                bundle.putString("choice", FRAGMENT_TYPE_7);
-                break;
-            case R.id.text8:
-                bundle.putString("choice", FRAGMENT_TYPE_8);
-                break;
-            case R.id.text9:
-                bundle.putString("choice", FRAGMENT_TYPE_9);
-                break;
-            case R.id.text10:
-                bundle.putString("choice", FRAGMENT_TYPE_10);
-                break;
-            case R.id.text11:
-                bundle.putString("choice", FRAGMENT_TYPE_11);
-                break;
-            case R.id.text12:
-                bundle.putString("choice", FRAGMENT_TYPE_12);
-                break;
-            case R.id.text13:
-                bundle.putString("choice", FRAGMENT_TYPE_13);
-                break;
-            case R.id.text14:
-                bundle.putString("choice", FRAGMENT_TYPE_14);
-                break;
-            case R.id.text15:
-                bundle.putString("choice", FRAGMENT_TYPE_15);
-                break;
-        }
-
-        Intent intent = new Intent(this, ContainerActivity.class);
-        intent.putExtra("data", bundle);
-
-        //  Activity 间通过隐式 Intent 的跳转，在发出 Intent 之前必须通过 resolveActivity
-        // 检查，避免找不到合适的调用组件，造成 ActivityNotFoundException 的异常。
-
-        //  此处 ContainerActivity.class 为显示指定的类 可以不用这样写
-
-        //  如果需要通过url打开的activity则需要这样写
-
-        if (getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
-            startActivity(intent);
-        } else {
-
-            // 如果一个按钮可以触发两次Toast，都用 ToastUtil.showToast 则只弹出一次,弹出最后执行的toast
-            // 如果 其中一次使用ToastUtil.showToast，另一次使用Toast.makeText 则会显示两次的内容
-            //Toast.makeText(this, "找不到Activiity", Toast.LENGTH_SHORT).show(); //  方法一
-            ToastUtil.showToast(this, "找不到Activiity", Toast.LENGTH_SHORT);  //  方法二
-
-        }
-
-
+    private void initData(){
+        mMenu.add(FRAGMENT_TYPE_1);
+        mMenu.add(FRAGMENT_TYPE_2);
+        mMenu.add(FRAGMENT_TYPE_3);
+        mMenu.add(FRAGMENT_TYPE_4);
+        mMenu.add(FRAGMENT_TYPE_5);
+        mMenu.add(FRAGMENT_TYPE_6);
+        mMenu.add(FRAGMENT_TYPE_7);
+        mMenu.add(FRAGMENT_TYPE_8);
+        mMenu.add(FRAGMENT_TYPE_9);
+        mMenu.add(FRAGMENT_TYPE_10);
+        mMenu.add(FRAGMENT_TYPE_11);
+        mMenu.add(FRAGMENT_TYPE_12);
+        mMenu.add(FRAGMENT_TYPE_13);
+        mMenu.add(FRAGMENT_TYPE_14);
+        mMenu.add(FRAGMENT_TYPE_15);
     }
-
 }
