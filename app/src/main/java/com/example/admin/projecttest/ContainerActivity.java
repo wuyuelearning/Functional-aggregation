@@ -11,6 +11,7 @@ import Fragment.ImageSpanFragment;
 import Fragment.*;
 import bezier.BezierFragment;
 import divide_edit_text.DivideEditTextFragment;
+import expandable_text_view.ExpandableTextViewFragment;
 import mvp.MVPFragment;
 
 import android.support.v4.app.Fragment;
@@ -84,6 +85,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_15:
                 fragment = new DivideEditTextFragment();
+                break;
+            case FRAGMENT_TYPE_16:
+                fragment = new ExpandableTextViewFragment();
                 break;
             default:
                 break;

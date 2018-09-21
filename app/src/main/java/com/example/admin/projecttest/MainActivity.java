@@ -53,5 +53,6 @@ public class MainActivity extends AppCompatActivity{
         mMenu.add(FRAGMENT_TYPE_13);
         mMenu.add(FRAGMENT_TYPE_14);
         mMenu.add(FRAGMENT_TYPE_15);
+        mMenu.add(FRAGMENT_TYPE_16);
     }
 }
