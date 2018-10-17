@@ -44,4 +44,5 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_14 = "Bezier";
     public static final String FRAGMENT_TYPE_15 = "DivideEditText";
     public static final String FRAGMENT_TYPE_16 = "ExpandableTextView";
+    public static final String FRAGMENT_TYPE_17 = "DrawBoard";
 }

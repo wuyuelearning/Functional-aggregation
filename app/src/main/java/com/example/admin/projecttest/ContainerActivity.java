@@ -11,6 +11,7 @@ import Fragment.ImageSpanFragment;
 import Fragment.*;
 import bezier.BezierFragment;
 import divide_edit_text.DivideEditTextFragment;
+import draw_board.DrawBoardFragment;
 import expandable_text_view.ExpandableTextViewFragment;
 import mvp.MVPFragment;
 
@@ -88,6 +89,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_16:
                 fragment = new ExpandableTextViewFragment();
+                break;
+            case FRAGMENT_TYPE_17:
+                fragment = new DrawBoardFragment();
                 break;
             default:
                 break;
