@@ -4,7 +4,7 @@ import android.text.Editable;
 
 import android.widget.EditText;
 
-import Utils.DivideEditTextUtil;
+import utils.DivideEditTextUtil;
 
 /**
  * Created by wuyue on 2018/9/13.

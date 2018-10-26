@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 
 import android.support.v7.app.AppCompatActivity;
 
-import Fragment.ImageSpanFragment;
-import Fragment.*;
+import fragment.ImageSpanFragment;
+import fragment.*;
 import bezier.BezierFragment;
 import divide_edit_text.DivideEditTextFragment;
 import draw_board.DrawBoardFragment;
@@ -17,7 +17,7 @@ import mvp.MVPFragment;
 
 import android.support.v4.app.Fragment;
 
-import static Utils.COMMONVALUE.*;
+import static utils.COMMONVALUE.*;
 
 /**
  * Created by wuyue on 2018/4/9.
