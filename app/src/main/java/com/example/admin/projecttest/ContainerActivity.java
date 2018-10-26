@@ -13,6 +13,7 @@ import bezier.BezierFragment;
 import divide_edit_text.DivideEditTextFragment;
 import draw_board.DrawBoardFragment;
 import expandable_text_view.ExpandableTextViewFragment;
+import memorandum.MemorandumFragment;
 import mvp.MVPFragment;
 
 import android.support.v4.app.Fragment;
@@ -92,6 +93,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_17:
                 fragment = new DrawBoardFragment();
+                break;
+            case FRAGMENT_TYPE_18:
+                fragment = new MemorandumFragment();
                 break;
             default:
                 break;
