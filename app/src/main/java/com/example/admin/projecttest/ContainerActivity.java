@@ -15,6 +15,7 @@ import draw_board.DrawBoardFragment;
 import expandable_text_view.ExpandableTextViewFragment;
 import memorandum.MemorandumFragment;
 import mvp.MVPFragment;
+import tow_tab.TwoTabFragment;
 
 import android.support.v4.app.Fragment;
 
@@ -96,6 +97,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_18:
                 fragment = new MemorandumFragment();
+                break;
+            case FRAGMENT_TYPE_19:
+                fragment = new TwoTabFragment();
                 break;
             default:
                 break;

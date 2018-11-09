@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/default_page_bg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_bottom"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_coupon_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:textColor="@color/color_666666"
+                android:textSize="18dp"
+                tools:text="新用户大礼包"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="优惠金额:"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tv_coupon_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    tools:text="满两份减三十"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="有效期:    "
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tv_coupon_expired_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    tools:text="2016年03月02日-2016年05月02日有效期内可使用一次"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_use_scope"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="使用范围:"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tv_coupon_use_scope"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    tools:text="跟团游（国内-长线）、当地游（出境/港澳台）、酒店套餐（出境/港澳台）跟团游（国内-长线）、当地游（出境/港澳台）、酒店套餐（出境/港澳台）跟团游（国内-长线）、当地游（出境/港澳台）、酒店套餐（出境/港澳台）跟团游（国内-长线）、当地游（出境/港澳台）、酒店套餐（出境/港澳台）跟团游（国内-长线）、当地游（出境/港澳台）、酒店套餐（出境/港澳台）"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/coupon_platform_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="适用平台:"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tv_coupon_platform"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    tools:text="驴妈妈旅游网站、驴妈妈旅游APP、驴妈妈旅游网站手机版"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="优惠券编号:"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tv_coupon_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    tools:text="驴妈妈旅游网站、驴妈妈旅游APP、驴妈妈旅游网站手机版"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:ignore="contentDescription"/>
+    </LinearLayout>
+
+</RelativeLayout>

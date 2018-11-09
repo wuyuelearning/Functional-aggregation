@@ -28,4 +28,10 @@
         <item name="android:windowExitAnimation">@anim/slide_out_to_top</item>
     </style>
 
+    <style name="style_16_tab_selector">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/color_666666_to_d30775_selector</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
 </resources>

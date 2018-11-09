@@ -46,4 +46,5 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_16 = "ExpandableTextView";
     public static final String FRAGMENT_TYPE_17 = "DrawBoard";
     public static final String FRAGMENT_TYPE_18 = "Memorandum";
+    public static final String FRAGMENT_TYPE_19 = "TwoTab";
 }
