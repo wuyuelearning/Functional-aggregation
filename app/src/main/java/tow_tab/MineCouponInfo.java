@@ -83,21 +83,21 @@ public class MineCouponInfo implements Parcelable {
     }
 
     public static class MineCouponBean implements Parcelable {
-        public String gotTime;
+        public String gotTime="111222";
         public boolean onlyWireless;
         public boolean isDiscount;
-        public String code;
-        public String expiredDate;
-        public String name;
-        public String price;
-        public String couponType;
-        public String userType;
-        public String maxCoupon;
-        public String useLimit;
-        public String platform;
-        public String useScope;
-        public String discountAmount;
-        public String handledExpireDate;
+        public String code="111222";
+        public String expiredDate="111222";
+        public String name="111222";
+        public String price="111222";
+        public String couponType="111222";
+        public String userType="111222";
+        public String maxCoupon="111222";
+        public String useLimit="111222";
+        public String platform="111222";
+        public String useScope="111222";
+        public String discountAmount="111222";
+        public String handledExpireDate="111222";
         public String validInfo;   //用户输入券码时不可用原因
         public boolean isSelect =false;
 

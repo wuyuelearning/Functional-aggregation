@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.admin.projecttest.R;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import tow_tab.AnimationPopupWindow;
@@ -35,6 +36,7 @@ public abstract class CouponsCommonFragment extends Fragment {
 
     private AnimationPopupWindow mPopupWindow;
     private View mPopupWindowView;
+    private List<MineCouponInfo.MineCouponBean> mData =new ArrayList<>();
 
 
     public abstract int getViewId();
@@ -57,7 +59,9 @@ public abstract class CouponsCommonFragment extends Fragment {
         rvCoupons = (RecyclerView)mRootView.findViewById(R.id.rv_coupons);
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rvCoupons.setLayoutManager(linearLayoutManager);
         mAdapter = getAdapter();
+        mAdapter.setmData(mData);
         rvCoupons.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(new CouponsRvAdapter.OnItemClickListener() {
             @Override
@@ -68,8 +72,18 @@ public abstract class CouponsCommonFragment extends Fragment {
 
 
 
+
     }
     private void initData(){
+
+        MineCouponInfo.MineCouponBean bean =new MineCouponInfo.MineCouponBean();
+        mData.add(bean);
+        mData.add(bean);
+        mData.add(bean);
+        mData.add(bean);
+        mData.add(bean);
+        mData.add(bean);
+        mData.add(bean);
 
     }
 

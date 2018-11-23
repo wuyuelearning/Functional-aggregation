@@ -18,7 +18,7 @@ public class RouteCouponsFragment extends CouponsCommonFragment {
 
     @Override
     public CouponsRvAdapter getAdapter() {
-        return new CouponsRvAdapter(getActivity(),getProductType(),getViewId());
+        return new CouponsRvAdapter(getActivity(),getProductType(),R.layout.item_coupons);
     }
 
     @Override
