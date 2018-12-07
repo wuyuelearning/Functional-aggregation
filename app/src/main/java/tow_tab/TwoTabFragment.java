@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
@@ -25,6 +26,7 @@ public class TwoTabFragment extends Fragment implements View.OnClickListener {
     private TextView tvUsableCouponsTab;
     private TextView tvUsedCouponsTab;
     private TextView tvUnusableCouponsTab;
+    private  AppBarLayout appBarLayout;
 
     //    private TextView selectedTab;
     private boolean[] selectedTab = new boolean[3];
@@ -39,6 +41,10 @@ public class TwoTabFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
+
+//        appBarLayout = (AppBarLayout) mView.findViewById(R.id.abl_holiday_list);
+//        appBarLayout.setExpanded(true);
+
         tvUsableCouponsTab = (TextView) mView.findViewById(R.id.tv_usable_coupons);
         tvUsedCouponsTab = (TextView) mView.findViewById(R.id.tv_used_coupons);
         tvUnusableCouponsTab = (TextView) mView.findViewById(R.id.tv_unusable_coupons);
@@ -68,9 +74,6 @@ public class TwoTabFragment extends Fragment implements View.OnClickListener {
     }
 
     private void setSelectedFragment(String fragmentPos, FragmentTransaction fragmentTransaction) {
-
-
-
         switch (fragmentPos){
             case CouponConstant.USABLE_COUPONS_TAB:
                 if (!usableCouponFragment.isAdded()) {

@@ -1,6 +1,7 @@
 package tow_tab;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -30,6 +31,8 @@ public class CouponMainFragment extends Fragment{
     private List<Fragment> mFragments = new ArrayList<>();
     private List<String> mTitles = new ArrayList<>();
     private String fragmentPos ;
+
+
 
 
     @Override
@@ -72,9 +75,12 @@ public class CouponMainFragment extends Fragment{
         mFragmentManager =getChildFragmentManager();
     }
     private void initView(){
+
+
         ViewPager viewPager =(ViewPager)mRootView.findViewById(R.id.vp_coupons);
         viewPager.setOffscreenPageLimit(2);
         CouponFragmentPagerAdapter couponFragmentPagerAdapter =new CouponFragmentPagerAdapter(mFragmentManager,mFragments,mTitles);
+        String  s =couponFragmentPagerAdapter.getPageTitle(0).toString();
         viewPager.setAdapter(couponFragmentPagerAdapter);
         TabIndicator tabIndicator =(TabIndicator)mRootView.findViewById(R.id.ti_tab_layout);
         tabIndicator.setViewPager(viewPager);

@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <bitmap
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:antialias="true"
-        android:dither="true"
-        android:filter="true"
-        android:mipMap="true"
-        android:src="@drawable/">
-    </bitmap>
+    <!--<bitmap-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:antialias="true"-->
+        <!--android:dither="true"-->
+        <!--android:filter="true"-->
+        <!--android:mipMap="true"-->
+        <!--android:src="@drawable/">-->
+    <!--</bitmap>-->
 
     <LinearLayout
         android:layout_width="match_parent"

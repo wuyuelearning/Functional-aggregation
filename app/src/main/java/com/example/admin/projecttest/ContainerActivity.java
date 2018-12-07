@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 
 import android.support.v7.app.AppCompatActivity;
 
+import MutilRecy.MutilRVFragment;
 import fragment.ImageSpanFragment;
 import fragment.*;
 import bezier.BezierFragment;
@@ -100,6 +101,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_19:
                 fragment = new TwoTabFragment();
+                break;
+                case FRAGMENT_TYPE_20:
+                fragment = new MutilRVFragment();
                 break;
             default:
                 break;
