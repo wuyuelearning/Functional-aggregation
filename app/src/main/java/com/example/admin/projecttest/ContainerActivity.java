@@ -14,6 +14,7 @@ import bezier.BezierFragment;
 import divide_edit_text.DivideEditTextFragment;
 import draw_board.DrawBoardFragment;
 import expandable_text_view.ExpandableTextViewFragment;
+import mask_layer.MaskLayerFragment;
 import memorandum.MemorandumFragment;
 import mvp.MVPFragment;
 import tow_tab.TwoTabFragment;
@@ -102,8 +103,11 @@ public class ContainerActivity extends AppCompatActivity {
             case FRAGMENT_TYPE_19:
                 fragment = new TwoTabFragment();
                 break;
-                case FRAGMENT_TYPE_20:
+            case FRAGMENT_TYPE_20:
                 fragment = new MutilRVFragment();
+                break;
+            case FRAGMENT_TYPE_21:
+                fragment = new MaskLayerFragment();
                 break;
             default:
                 break;
