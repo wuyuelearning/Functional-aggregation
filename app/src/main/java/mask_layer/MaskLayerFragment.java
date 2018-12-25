@@ -17,9 +17,11 @@ import android.widget.TextView;
 
 import com.example.admin.projecttest.R;
 
+import utils.DeleteIconEditText;
+
 /**
  * Created by wuyue on 2018/12/19.
- * describe: 蒙层
+ * describe: 在屏幕固定处弹出蒙层
  *
  * 在xml 文件中 需要注意蒙层的层级，需要和被覆盖的内容的LinearLayout在一个层级，在同一个RelativeLayout中
  *
@@ -30,7 +32,7 @@ public class MaskLayerFragment extends Fragment implements View.OnClickListener{
     View mView;
 
     View mMaskLayer;
-    EditText mEtinput;
+    DeleteIconEditText mEtinput;
     TextView mTvUse;
 
     private static final int ALPHA_128 = 128;
@@ -45,7 +47,7 @@ public class MaskLayerFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initView(){
-        mEtinput = (EditText)mView.findViewById(R.id.mask_layer_et_input);
+        mEtinput = (DeleteIconEditText)mView.findViewById(R.id.mask_layer_et_input);
 //      mEtinput需在外层设置  android:focusableInTouchMode="true"
         mEtinput.setCursorVisible(false);
         mEtinput.setOnClickListener(this);

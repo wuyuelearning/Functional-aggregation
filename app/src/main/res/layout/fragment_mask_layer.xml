@@ -10,7 +10,7 @@
         android:orientation="horizontal"
         android:focusableInTouchMode="true">
 
-    <EditText
+    <utils.DeleteIconEditText
         android:id="@+id/mask_layer_et_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

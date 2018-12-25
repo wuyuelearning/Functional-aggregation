@@ -77,15 +77,20 @@ public class MultiAdapter extends RecyclerView.Adapter {
                     @Override
                     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                         RecyclerView.ViewHolder holder = parent.findContainingViewHolder(view);
-                        if (holder != null) {
-                            int position = holder.getAdapterPosition();
-                            if (position == parent.getAdapter().getItemCount() - 1) {  // 设置间隙，左右一项的时候需要设置右边的间隙
-                                outRect.right = MobileUtil.dip2px(10);
-                            } else {
-                                outRect.right = 0;
+                        if (!CollectionUtils.nullOrEmpty(mData) && mData.size() > 1) {
+                            if (holder != null) {
+                                int position = holder.getAdapterPosition();
+                                if (position == parent.getAdapter().getItemCount() - 1) {  //   如果是最后一个，则要设置右边间距
+                                    outRect.right = MobileUtil.dip2px(10);
+                                } else {
+                                    outRect.right = 0;
+                                }
+                                outRect.left = MobileUtil.dip2px(10);
                             }
+                        } else if (!CollectionUtils.nullOrEmpty(mData) && mData.size() == 1) {  // 如果只有一个 居中展示
+                            outRect.left = MobileUtil.dip2px(20);
+                            outRect.right = MobileUtil.dip2px(20);
                         }
-                        outRect.left = MobileUtil.dip2px(10);
                     }
                 });
                 linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
