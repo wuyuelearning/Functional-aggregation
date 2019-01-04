@@ -109,6 +109,8 @@ public class MultiAdapter extends RecyclerView.Adapter {
         return viewHolder;
     }
 
+
+
     private void setInnerViewScrollListener(RecyclerView recyclerView) {
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -160,6 +162,40 @@ public class MultiAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return mData.size();
     }
+
+    //  横向数据 ，纵向数据不同
+//    @Override
+//    public int getItemCount() {
+//        if (CollectionUtils.nullOrEmpty(verticalData)) return 0;
+//
+//        if (!CollectionUtils.nullOrEmpty(verticalData) && CollectionUtils.nullOrEmpty(horizontalData))
+//            return verticalData.size();
+//
+//        if (!CollectionUtils.nullOrEmpty(verticalData) && !CollectionUtils.nullOrEmpty(horizontalData)) {
+//            return verticalData.size() + 1;  //  增加横向的一行
+//        }
+//        return 0;
+//
+//    }
+
+//    private List<MineCouponInfo.MineCouponBean> verticalData;  //  包含horizontalData数据 ！！！！！！
+//    private List<MineCouponInfo.MineCouponBean> horizontalData;
+
+//    private MineCouponInfo.MineCouponBean getItem(int position) {
+//        if (verticalData != null && verticalData.size() >= 1) {
+//            if (hasMultiItem && position >= 1) {
+//                position = position - 1;   //  如果有横向数据就需要将 纵向数据的第一行下移一位，list中下标0对应展示在列表中下标1
+//                return verticalData.get(position);
+//            } else {
+//                if (verticalData.size() > position) {
+//                    return verticalData.get(position);
+//                } else {
+//                    return null;
+//                }
+//            }
+//        }
+//        return null;
+//    }
 
     public void setData(List<String> list) {
         if (CollectionUtils.nullOrEmpty(list)) return;
