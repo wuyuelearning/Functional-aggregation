@@ -49,4 +49,5 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_19 = "TwoTab";
     public static final String FRAGMENT_TYPE_20 = "MutilRV";
     public static final String FRAGMENT_TYPE_21 = "MaskLayer";
+    public static final String FRAGMENT_TYPE_22 = "CallBack";
 }

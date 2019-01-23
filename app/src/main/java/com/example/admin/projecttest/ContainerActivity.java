@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import MutilRecy.MutilRVFragment;
+import callbacktest.CallBackFragment;
 import fragment.ImageSpanFragment;
 import fragment.*;
 import bezier.BezierFragment;
@@ -108,6 +109,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_21:
                 fragment = new MaskLayerFragment();
+                break;
+            case FRAGMENT_TYPE_22:
+                fragment = new CallBackFragment();
                 break;
             default:
                 break;
