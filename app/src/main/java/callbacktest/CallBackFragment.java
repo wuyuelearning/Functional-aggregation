@@ -5,15 +5,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.admin.projecttest.R;
 import java.util.Random;
+
+import callbacktest.callback.IMyCallBack;
+import callbacktest.callback.MyCallBackImpl;
+import callbacktest.callback2.CallBack2;
+import callbacktest.callback2.ICallBack2;
 
 /**
  * Created by wuyue on 2019/1/23.
@@ -55,7 +58,7 @@ public class CallBackFragment extends Fragment{
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View  v) {
-                CallBack2  c =new CallBack2();
+                CallBack2 c =new CallBack2();
                 c.setCallBack(new ICallBack2() {
                     @Override
                     public void callback() {

@@ -1,4 +1,4 @@
-package callbacktest;
+package callbacktest.callback;
 
 /**
  * Created by wuyue on 2019/1/23.
