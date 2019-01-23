@@ -5,10 +5,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.admin.projecttest.R;
 import java.util.Random;
@@ -47,6 +49,25 @@ public class CallBackFragment extends Fragment{
                 m.setCallBack(im, i);
             }
         });
+
+
+        Button button2 =(Button)view.findViewById(R.id.btn_call_back2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View  v) {
+                CallBack2  c =new CallBack2();
+                c.setCallBack(new ICallBack2() {
+                    @Override
+                    public void callback() {
+                        Log.d("CallBack...","callback-2");
+                    }
+                });
+
+
+            }
+        });
+
+
 
         return view;
     }
