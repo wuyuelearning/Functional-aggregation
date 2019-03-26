@@ -18,6 +18,7 @@ import expandable_text_view.ExpandableTextViewFragment;
 import mask_layer.MaskLayerFragment;
 import memorandum.MemorandumFragment;
 import mvp.MVPFragment;
+import pullablelayout.PullableLayoutFragment;
 import rec_linkage.RecyclerViewLinkageFragment;
 import tow_tab.TwoTabFragment;
 
@@ -116,6 +117,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_23:
                 fragment = new RecyclerViewLinkageFragment();
+                break;
+            case FRAGMENT_TYPE_24:
+                fragment = new PullableLayoutFragment();
                 break;
             default:
                 break;
