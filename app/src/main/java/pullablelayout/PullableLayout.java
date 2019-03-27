@@ -117,7 +117,6 @@ public class PullableLayout extends ViewGroup {
 
     private int mLastMoveY; // 记录上一次时的纵坐标，用于计算纵轴的移动
 
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int y = (int) event.getY();
@@ -135,17 +134,6 @@ public class PullableLayout extends ViewGroup {
                 int dy = mLastMoveY - y;  //  手向上滑，y值在减少，mLastMoveY为上一次纵坐标，mLastMoveY - y>0
                 Log.d(KEY_TAG_PULLABLE, "...onTouchEvent()...ACTION_MOVE...dy= " + dy);
 //                scrollBy(0, dy);  //  让视图移动dy，但是仅是如此，视图可以一直拖动，所以需要设置，移动距离，到了距离后就不能再拖动视图了
-//                if (mHeader ){
-//                    mTvPullableHeader.setVisibility(VISIBLE);
-//                    mTvPullableHeader.setText("下拉刷新");
-//                    mPbPullableHeader.setVisibility(GONE);
-//                }
-//                if (mFooter.getVisibility() == INVISIBLE){
-//                    mTvPullableFooter.setVisibility(VISIBLE);
-//                    mTvPullableFooter.setText("上拉加载");
-//                    mPbPullableFooter.setVisibility(GONE);
-//                }
-
                 if (dy < 0) {  //  线下滑动，表示下拉
                     Log.d(KEY_TAG_PULLABLE, "...onTouchEvent()...ACTION_MOVE...dy<0...Math.abs(getScrollY())= " + Math.abs(getScrollY()) + "...headerEffectiveScrollY= " + headerEffectiveScrollY);
                     if (Math.abs(getScrollY()) <= headerEffectiveScrollY) { // 设置头部视图最大拖动距离
@@ -175,16 +163,16 @@ public class PullableLayout extends ViewGroup {
                         mTvPullableFooter.setVisibility(VISIBLE);
                         mPbPullableFooter.setVisibility(GONE);
 //                        mLayoutScroller.startScroll(0, getScrollY(), 0, -(getScrollY() + headerEffectiveScrollY), 650);
-                        mLayoutScroller.startScroll(0, getScrollY(), 0, headerEffectiveScrollY - 80, 650);
+                        mLayoutScroller.startScroll(0, getScrollY(), 0, headerEffectiveScrollY - 60, 650);
                     } else {
                         mTvPullableHeader.setVisibility(VISIBLE);
                         mPbPullableHeader.setVisibility(GONE);
                         mTvPullableFooter.setVisibility(GONE);
                         mPbPullableFooter.setVisibility(VISIBLE);
 //                        mLayoutScroller.startScroll(0, getScrollY(), 0, -(getScrollY() + headerEffectiveScrollY), 650);
-                        mLayoutScroller.startScroll(0, getScrollY(), 0, 80 - headerEffectiveScrollY, 650);
-
+                        mLayoutScroller.startScroll(0, getScrollY(), 0, 60 - headerEffectiveScrollY, 650);
                     }
+                    mRefreshListener.onRefresh();
                 } else {
                     Log.d(KEY_TAG_PULLABLE, "...onTouchEvent()...ACTION_UP...getScrollY= " + getScrollY());
                     mLayoutScroller.startScroll(0, getScrollY(), 0, -getScrollY(), 650);
@@ -203,5 +191,21 @@ public class PullableLayout extends ViewGroup {
             scrollTo(0, mLayoutScroller.getCurrY());
         }
         postInvalidate();
+    }
+
+    private onRefreshListener mRefreshListener;
+
+    public void setRefreshListener(onRefreshListener mRefreshListener) {
+        this.mRefreshListener = mRefreshListener;
+    }
+
+    public void refreshDone() {
+        mLayoutScroller.startScroll(0, getScrollY(), 0, -getScrollY(), 650);
+        mTvPullableHeader.setVisibility(VISIBLE);
+        mTvPullableHeader.setText("下拉刷新");
+        mPbPullableHeader.setVisibility(GONE);
+        mTvPullableFooter.setVisibility(VISIBLE);
+        mTvPullableFooter.setText("上拉加载");
+        mPbPullableFooter.setVisibility(GONE);
     }
 }

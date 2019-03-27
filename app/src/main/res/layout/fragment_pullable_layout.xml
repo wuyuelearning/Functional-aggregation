@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <pullablelayout.PullableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/pl_main">
+
     <ImageView
         android:id="@+id/iv_pullable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/pic_default"/>
+        android:background="@drawable/pic_default" />
 
 </pullablelayout.PullableLayout>

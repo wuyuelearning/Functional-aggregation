@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_10"
         android:drawableLeft="@drawable/dk_arrow_right"
         android:text="上拉加载"
         android:textColor="@color/color_666666"
@@ -23,7 +23,7 @@
         android:layout_height="@dimen/space_30"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_10"
         android:visibility="gone"
         tools:visibility="visible" />
 </RelativeLayout>
