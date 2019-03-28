@@ -1,12 +1,15 @@
 package pullablelayout;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
@@ -24,7 +27,8 @@ import com.example.admin.projecttest.R;
 /**
  * PullableLayout()--> initView()-->onFinishInflate  :初始化布局
  * -->onMeasure()-->onLayout() :测量并放置 头部视图和底部视图
- * --> onTouchEvent() : 点击事件，布局的移动,注意移动和抬起的处理
+ * --> onTouchEvent() : 点击事件，布局的移动,注意移动和抬起的处理，使用scroller.startScroll进行滑动，并且要覆写 computeScroll方法
+ * --> onRefreshListener 滑动至最大滑动限制，触发事件
  */
 
 public class PullableLayout extends ViewGroup {
@@ -34,6 +38,7 @@ public class PullableLayout extends ViewGroup {
     private TextView mTvPullableHeader, mTvPullableFooter;
     private static final String KEY_TAG_PULLABLE = "TAG_PULLABLE";
     private Scroller mLayoutScroller;
+    private int mLastChildIndex;
 
     public PullableLayout(Context context) {
         super(context);
@@ -63,6 +68,7 @@ public class PullableLayout extends ViewGroup {
     protected void onFinishInflate() {
         super.onFinishInflate();
         Log.d(KEY_TAG_PULLABLE, "...onFinishInflate()");
+        mLastChildIndex = getChildCount() - 1;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         mHeader.setLayoutParams(params);
@@ -153,6 +159,7 @@ public class PullableLayout extends ViewGroup {
                         mTvPullableFooter.setText("松开加载");
                     }
                 }
+                mLastMoveY = y;
                 break;
             case MotionEvent.ACTION_UP:
                 if (Math.abs(getScrollY()) >= headerEffectiveScrollY) {
@@ -164,6 +171,7 @@ public class PullableLayout extends ViewGroup {
                         mPbPullableFooter.setVisibility(GONE);
 //                        mLayoutScroller.startScroll(0, getScrollY(), 0, -(getScrollY() + headerEffectiveScrollY), 650);
                         mLayoutScroller.startScroll(0, getScrollY(), 0, headerEffectiveScrollY - 60, 650);
+                        mRefreshListener.onPullDownRefresh();//  调用PullableLayoutFragment中的onPullDownRefresh回调
                     } else {
                         mTvPullableHeader.setVisibility(VISIBLE);
                         mPbPullableHeader.setVisibility(GONE);
@@ -171,8 +179,9 @@ public class PullableLayout extends ViewGroup {
                         mPbPullableFooter.setVisibility(VISIBLE);
 //                        mLayoutScroller.startScroll(0, getScrollY(), 0, -(getScrollY() + headerEffectiveScrollY), 650);
                         mLayoutScroller.startScroll(0, getScrollY(), 0, 60 - headerEffectiveScrollY, 650);
+                        mRefreshListener.onPullUpRefresh();//  调用PullableLayoutFragment中的onPullUPRefresh回调
                     }
-                    mRefreshListener.onRefresh();
+
                 } else {
                     Log.d(KEY_TAG_PULLABLE, "...onTouchEvent()...ACTION_UP...getScrollY= " + getScrollY());
                     mLayoutScroller.startScroll(0, getScrollY(), 0, -getScrollY(), 650);
@@ -180,7 +189,8 @@ public class PullableLayout extends ViewGroup {
                 break;
         }
         Log.d(KEY_TAG_PULLABLE, "...onTouchEvent()...mLastMoveY= " + mLastMoveY);
-        mLastMoveY = y;
+//        mLastInterceptY =0;
+        postInvalidate();//刷新界面
         return true;
     }
 
@@ -190,7 +200,7 @@ public class PullableLayout extends ViewGroup {
         if (mLayoutScroller.computeScrollOffset()) {
             scrollTo(0, mLayoutScroller.getCurrY());
         }
-        postInvalidate();
+        postInvalidate(); //刷新界面
     }
 
     private onRefreshListener mRefreshListener;
@@ -207,5 +217,102 @@ public class PullableLayout extends ViewGroup {
         mTvPullableFooter.setVisibility(VISIBLE);
         mTvPullableFooter.setText("上拉加载");
         mPbPullableFooter.setVisibility(GONE);
+    }
+
+    private int mLastInterceptY;
+    /**
+     * 滑动冲突,拦截判断
+     */
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        boolean intercept = false;
+        int y = (int) ev.getY();
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mLastMoveY = y;
+                intercept = false;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if (y > mLastMoveY) { //  下滑操作
+                    View child = getChildAt(0);
+                    if (child instanceof AdapterView) {
+                        intercept = lvDownIntercept(child);
+                    } else if (child instanceof RecyclerView) {
+                        intercept = rvDownIntercept(child);
+                    }
+                } else if (y < mLastMoveY) { // 上滑操作
+                    View child = getChildAt(mLastChildIndex);
+                    Log.d(KEY_TAG_PULLABLE, "...onInterceptTouchEvent...mLastChildIndex= " + mLastChildIndex);
+                    if (child instanceof AdapterView) {
+                        intercept = lvUpIntercept(child);
+                    } else if (child instanceof RecyclerView) {
+                        intercept = rvUpIntercept(child);
+                    }
+                } else {
+                    intercept = false;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                intercept = false;
+                break;
+        }
+        mLastMoveY = y;
+        return intercept;
+    }
+
+    //RecyclerView  下拉拦截，判断是否
+    private boolean rvDownIntercept(View child) {
+        boolean intercept = false;
+        RecyclerView recyclerView = (RecyclerView) child;
+        if (recyclerView.computeVerticalScrollOffset() <= 0) {
+            intercept = true;
+        }
+        return intercept;
+    }
+
+    /**
+     * RecyclerView  上拉拦截，判断是否到达底部
+     * <p>
+     * computeVerticalScrollExtent()是当前屏幕显示的区域高度，
+     * computeVerticalScrollOffset() 是当前屏幕之前滑过的距离，
+     * computeVerticalScrollRange()是整个View控件的高度。
+     */
+    private boolean rvUpIntercept(View child) {
+        boolean intercept = false;
+        RecyclerView recyclerView = (RecyclerView) child;
+        Log.d(KEY_TAG_PULLABLE, "...onInterceptTouchEvent...computeVerticalScrollExtent=" + recyclerView.computeVerticalScrollExtent()
+                + "...computeVerticalScrollOffset=" + recyclerView.computeVerticalScrollOffset()
+                + "...computeVerticalScrollRange=" + recyclerView.computeVerticalScrollRange());
+        // 超出下边界，拦截
+        if (recyclerView.computeVerticalScrollExtent()
+                + recyclerView.computeVerticalScrollOffset() >= recyclerView.computeVerticalScrollRange()) {
+            intercept = true;
+        }
+        return intercept;
+    }
+
+    //listView  下拉拦截
+    private boolean lvDownIntercept(View child) {
+        boolean intercept;
+        AdapterView adapter = (AdapterView) child;
+        if (adapter.getFirstVisiblePosition() != 0 || adapter.getChildAt(0).getTop() != 0) {
+            intercept = false;
+        } else {
+            intercept = true;
+        }
+        return intercept;
+    }
+
+    //listView  上拉拦截
+    private boolean lvUpIntercept(View child) {
+        boolean intercept = false;
+        AdapterView adapter = (AdapterView) child;
+        Log.d(KEY_TAG_PULLABLE, "...onInterceptTouchEvent...adapter.getCount()= " + adapter.getCount()
+                + "...adapter.getChildCount()= " + adapter.getChildCount() + "...mLastChildIndex= " + mLastChildIndex);
+        if (adapter.getLastVisiblePosition() == adapter.getCount() - 1
+                || adapter.getChildAt(adapter.getChildCount() - 1).getBottom() == getMeasuredHeight()) {
+            intercept = true;
+        }
+        return intercept;
     }
 }

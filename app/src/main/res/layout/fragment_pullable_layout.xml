@@ -4,10 +4,14 @@
     android:layout_height="match_parent"
     android:id="@+id/pl_main">
 
-    <ImageView
-        android:id="@+id/iv_pullable"
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_pullable"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@drawable/pic_default" />-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_pullable"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/pic_default" />
+        android:layout_height="match_parent"/>
 
 </pullablelayout.PullableLayout>

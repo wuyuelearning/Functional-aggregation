@@ -6,5 +6,6 @@ package pullablelayout;
  */
 
 public interface onRefreshListener {
-    void onRefresh();
+    void onPullDownRefresh();
+    void onPullUpRefresh();
 }
