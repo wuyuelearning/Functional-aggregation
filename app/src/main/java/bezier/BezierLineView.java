@@ -1,11 +1,13 @@
 package bezier;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,6 +17,10 @@ import android.view.View;
  */
 
 public class BezierLineView extends View {
+
+
+    private static final String TAG = "BezierLineView";
+
 
     //  控制点
     ControlPoint controlPoint;
@@ -49,18 +55,19 @@ public class BezierLineView extends View {
     public BezierLineView(Context context) {
         super(context);
         this.context = context;
-
+        init();
     }
 
     public BezierLineView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-
+        init();
     }
 
     public BezierLineView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
+        init();
 
     }
 
@@ -69,6 +76,12 @@ public class BezierLineView extends View {
 //    }
 
     private void init() {
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        viewWidth = (float) dm.widthPixels;
+        viewHeight = (float) dm.heightPixels;
+
+        Log.d(TAG, "...init()...viewWidth="+viewWidth);
+        Log.d(TAG, "...init()...viewHeight="+viewHeight);
 
         baseLineStartX = 0;
         baseLineStartY = 400;
@@ -76,7 +89,7 @@ public class BezierLineView extends View {
         baseLineEndY = baseLineStartY;
 
         initControlPointX = viewWidth / 2;
-        initControlPointY = viewHeight / 3;
+        initControlPointY = viewHeight / 4;
 
         viewStartX =   baseLineStartX;
         viewStartY = 0;
@@ -108,6 +121,7 @@ public class BezierLineView extends View {
     /**
      * 测量View的宽高，onMeasure在构造方法之后调用，所以在init()中使用宽高就需要在onMeasure之后再调用
      * 原先将init()放在构造方法中，使得 initControlPointX = viewWidth / 2;  一直拿不到View宽高
+     * 上述是在onMeasure拿到宽高，其实可以直接在init() 拿到宽高，就用将init()写在onMeasure中了
      *
      * @param widthMeasureSpec
      * @param heightMeasureSpec
@@ -115,10 +129,9 @@ public class BezierLineView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        viewWidth = MeasureSpec.getSize(widthMeasureSpec);
-        viewHeight = MeasureSpec.getSize(heightMeasureSpec);
+//        viewWidth = MeasureSpec.getSize(widthMeasureSpec);
+//        viewHeight = MeasureSpec.getSize(heightMeasureSpec);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        init();
     }
 
     @Override

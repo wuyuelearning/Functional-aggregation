@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,7 +22,7 @@ import android.view.animation.BounceInterpolator;
  * Created by wuyue on 2018/9/7.
  */
 
-public class BezierBallView extends  View {
+public class BezierBallView extends View {
 
     private static final String TAG = "tag";
     private static final String PATH = "path";
@@ -64,17 +65,17 @@ public class BezierBallView extends  View {
 
     public BezierBallView(Context context) {
         super(context);
-//        init();
+        init();
     }
 
     public BezierBallView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-//        init();
+        init();
     }
 
     public BezierBallView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-//        init();
+        init();
     }
 
     @Override
@@ -124,8 +125,8 @@ public class BezierBallView extends  View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         Log.d(TAG, "onMeasure");
 
-        screenWidth = View.MeasureSpec.getSize(widthMeasureSpec);
-        screenHeight = View.MeasureSpec.getSize(heightMeasureSpec);
+//        screenWidth = View.MeasureSpec.getSize(widthMeasureSpec);
+//        screenHeight = View.MeasureSpec.getSize(heightMeasureSpec);
 
         Log.d(TAG, "onMeasure  widthMeasureSpec " + widthMeasureSpec);
         Log.d(TAG, "onMeasure  heightMeasureSpec  " + heightMeasureSpec);
@@ -136,7 +137,6 @@ public class BezierBallView extends  View {
         Log.d(TAG, "onMeasure" + View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(widthMeasureSpec), View.MeasureSpec.getMode(widthMeasureSpec)));
         Log.d(TAG, "onMeasure" + View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(heightMeasureSpec), View.MeasureSpec.getMode(heightMeasureSpec)));
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        init();
     }
 
     @Override
@@ -153,7 +153,7 @@ public class BezierBallView extends  View {
     }
 
     private void init() {
-
+        Log.d(TAG, "...init()  ");
         startPoint1 = new Point();
         endPoint1 = new Point();
 
@@ -163,8 +163,14 @@ public class BezierBallView extends  View {
         middlePoint1 = new Point();
         middlePoint2 = new Point();
 
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        screenWidth = (float) dm.widthPixels;
+        screenHeight = (float) dm.heightPixels;
+
+        Log.d(TAG, "...init()...screenWidth=" + screenWidth);
+        Log.d(TAG, "...init()...screenHeight=" + screenHeight);
         initEndX = screenWidth / 5;
-        initEndY = screenHeight / 5;
+        initEndY = screenHeight / 6;
 
         Log.d(PATH, "" + initEndX + "  " + initEndY);
 

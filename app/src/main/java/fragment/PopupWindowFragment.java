@@ -76,7 +76,7 @@ public class PopupWindowFragment extends Fragment implements View.OnClickListene
             }
             break;
             case R.id.coupon_states: {
-
+                usePopupwindow2(v);
                 break;
             }
         }
