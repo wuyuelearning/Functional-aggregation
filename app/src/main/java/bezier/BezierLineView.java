@@ -121,7 +121,7 @@ public class BezierLineView extends View {
     /**
      * 测量View的宽高，onMeasure在构造方法之后调用，所以在init()中使用宽高就需要在onMeasure之后再调用
      * 原先将init()放在构造方法中，使得 initControlPointX = viewWidth / 2;  一直拿不到View宽高
-     * 上述是在onMeasure拿到宽高，其实可以直接在init() 拿到宽高，就用将init()写在onMeasure中了
+     * 上述是在onMeasure拿到宽高，其实可以直接在init() 拿到宽高，就不用将init()写在onMeasure中了
      *
      * @param widthMeasureSpec
      * @param heightMeasureSpec
