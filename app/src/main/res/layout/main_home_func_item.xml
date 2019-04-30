@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <utils.banner.BannerView
+        android:id="@+id/bn_main_home_func"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5" />
+
+    <LinearLayout
+        android:id="@+id/ll_main_home_func"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/space_5"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <utils.imageview.CircleRatioImageView
+            android:id="@+id/tv_fun1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@color/color_666666"
+            app:radiusLeftBottom="20"
+            app:radiusLeftTop="20"
+            app:radiusRightBottom="20"
+            app:radiusRightTop="20"
+            tools:ignore="NestedWeights" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_5" />
+
+        <utils.imageview.CircleRatioImageView
+            android:id="@+id/tv_fun2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@color/color_666666"
+            app:radiusLeftBottom="20"
+            app:radiusLeftTop="20"
+            app:radiusRightBottom="20"
+            app:radiusRightTop="20" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_5" />
+
+        <utils.imageview.CircleRatioImageView
+            android:id="@+id/tv_fun3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@color/color_666666"
+            app:radiusLeftBottom="20"
+            app:radiusLeftTop="20"
+            app:radiusRightBottom="20"
+            app:radiusRightTop="20" />
+    </LinearLayout>
+
+
+</LinearLayout>

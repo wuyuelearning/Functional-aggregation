@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <utils.imageview.CircleImageView
+        android:id="@+id/iv_main_home_city_inner"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp"
+        android:src="@color/color_666666"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_main_home_city_inner_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_5"
+        android:text="郑州" />
+
+    <TextView
+        android:id="@+id/tv_main_home_city_inner_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_5"
+        android:text="少林之勇" />
+</LinearLayout>

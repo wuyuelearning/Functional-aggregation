@@ -23,4 +23,54 @@
         <!--链接的图标-->
         <attr name="ep_link_res" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="CircleRatioImageView">
+        <attr name="radiusLeftTop" format="float" />
+        <attr name="radiusRightTop" format="float" />
+        <attr name="radiusLeftBottom" format="float" />
+        <attr name="radiusRightBottom" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioImageView">
+        <attr name="RatioImageView_originWidth" format="integer"/>
+        <attr name="RatioImageView_originHeight" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="BannerViewPager">
+        <attr name="tools_layout0" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="BannerView">
+        <attr name="ratio" format="float" />
+        <attr name="indicatorMarginBottom" format="dimension" />
+        <attr name="defaultResId" format="reference" />
+        <attr name="interval" format="integer" />
+        <attr name="divider" format="reference" />
+        <attr name="indicatorStyle">
+            <enum name="classic" value="0" />
+            <enum name="right" value="1" />
+            <enum name="longSelectedDot" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RoundCornerLinearLayout">
+        <attr name="left_top_corner" />
+        <attr name="right_top_corner" />
+        <attr name="left_bottom_corner" />
+        <attr name="right_bottom_corner" />
+    </declare-styleable>
 </resources>
+
+
+
+
+
+

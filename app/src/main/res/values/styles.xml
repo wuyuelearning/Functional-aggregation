@@ -34,4 +34,29 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <style name="DT_DIALOG_THEME" parent="android:Theme.Dialog">
+        <item name="android:padding">0dp</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:background">@drawable/comm_dt_dialog_bg</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="DT_DIALOG_ANIMATIONS" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dt_dialog_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/dt_dialog_exit_anim</item>
+    </style>
+
+    <style name="COMMON_SIMPLE_DIALOG_THEME" parent="DT_DIALOG_THEME">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="news_text_switcher_anim">
+        <item name="android:windowEnterAnimation">@anim/news_text_switcher_in</item>
+        <item name="android:windowExitAnimation">@anim/news_text_switcher_out</item>
+    </style>
 </resources>

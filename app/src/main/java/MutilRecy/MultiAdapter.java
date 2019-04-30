@@ -1,6 +1,7 @@
 package MutilRecy;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
@@ -110,7 +111,9 @@ public class MultiAdapter extends RecyclerView.Adapter {
     }
 
 
+    public  int mItemComusemX = 0;  // 一页理论消耗距离
 
+    private int mConsumeX;
     private void setInnerViewScrollListener(RecyclerView recyclerView) {
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -124,7 +127,59 @@ public class MultiAdapter extends RecyclerView.Adapter {
                     }
                 }
             }
-        });
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                mConsumeX+=dx;
+                Log.d("onScrolled","mConsumeX : "+mConsumeX);
+                setBottomToTopAnim(recyclerView, getPosition(mConsumeX,MobileUtil.getScreenWidth(mContext) - MobileUtil.dip2px(40)+MobileUtil.dip2px(10)), 0.8f);
+            }}
+        );
+
+    }
+
+    private int getPosition(int mConsumeX, int shouldConsumeX) {
+        float offset = (float) mConsumeX / (float) shouldConsumeX;
+        int position = Math.round(offset);        // 四舍五入获取位置
+        return position;
+    }
+    private float mAnimFactor =0.2f;
+    private void setBottomToTopAnim(RecyclerView recyclerView, int position, float percent) {
+        View mCurView = recyclerView.getLayoutManager().findViewByPosition(position);       // 中间页
+        View mRightView = recyclerView.getLayoutManager().findViewByPosition(position + 1); // 左边页
+        View mLeftView = recyclerView.getLayoutManager().findViewByPosition(position - 1);  // 右边页
+
+
+        if (percent <= 0.5) {
+            if (mLeftView != null) {
+                // 变大
+                mLeftView.setScaleX((1 - mAnimFactor) + percent * mAnimFactor);
+                mLeftView.setScaleY((1 - mAnimFactor) + percent * mAnimFactor);
+            }
+            if (mCurView != null) {
+                // 变小
+                mCurView.setScaleX(1 - percent * mAnimFactor);
+                mCurView.setScaleY(1 - percent * mAnimFactor);
+            }
+            if (mRightView != null) {
+                // 变大
+                mRightView.setScaleX((1 - mAnimFactor) + percent * mAnimFactor);
+                mRightView.setScaleY((1 - mAnimFactor) + percent * mAnimFactor);
+            }
+        } else {
+            if (mLeftView != null) {
+                mLeftView.setScaleX(1 - percent * mAnimFactor);
+                mLeftView.setScaleY(1 - percent * mAnimFactor);
+            }
+            if (mCurView != null) {
+                mCurView.setScaleX((1 - mAnimFactor) + percent * mAnimFactor);
+                mCurView.setScaleY((1 - mAnimFactor) + percent * mAnimFactor);
+            }
+            if (mRightView != null) {
+                mRightView.setScaleX(1 - percent * mAnimFactor);
+                mRightView.setScaleY(1 - percent * mAnimFactor);
+            }
+        }
     }
 
     @Override

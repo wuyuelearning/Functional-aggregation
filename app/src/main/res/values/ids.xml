@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="tag" type="id" />
+    <item name="first_tag" type="id" />
+    <item name="second_tag" type="id" />
+    <item name="third_tag" type="id" />
+
+    <!-- LvmmTooBarView -->
+    <item name="toolBar" type="id" />
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!-- alter by hcf 2016/10/19 -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_line"
+        android:background="#ffffff" />
+
+    <FrameLayout
+        android:id="@+id/customTitleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_line"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
+
+    <ImageButton
+        android:id="@+id/navigationIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="#00000000"
+        android:src="@drawable/comm_back_ic" />
+
+    <TextView
+        android:id="@+id/toolBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:maxEms="10"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_18"
+        tools:text="TitleTitleTitleTitleTitleTitleTitleTitleTitle" />
+
+    <TextView
+        android:id="@+id/hotelToolBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:ellipsize="end"
+        android:maxEms="16"
+        android:maxLines="1"
+        android:textColor="#333333"
+        android:textSize="@dimen/text_size_18"
+        android:visibility="gone"
+        tools:text="上海和平饭店" />
+
+    <TextView
+        android:id="@+id/txt_hotel_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/hotelToolBarTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/color_666666"
+        android:textSize="12dp"
+        android:visibility="gone"
+        tools:text="3-24--3-25 共3晚" />
+
+    <TextView
+        android:id="@+id/toolBarRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="#ffeb1684"
+        android:textSize="@dimen/text_size_16"
+        android:visibility="gone"
+        tools:text="right"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_alignParentBottom="true"
+        android:alpha="0.05"
+        android:background="@drawable/toolbar_line"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</merge>
