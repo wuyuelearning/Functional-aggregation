@@ -52,4 +52,5 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_22 = "CallBack";
     public static final String FRAGMENT_TYPE_23 = "RecLinkage";
     public static final String FRAGMENT_TYPE_24 = "PullableLayout";
+    public static final String FRAGMENT_TYPE_25 = "ChangeColor";
 }

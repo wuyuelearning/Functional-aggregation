@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import MutilRecy.MutilRVFragment;
 import callbacktest.CallBackFragment;
+import change_color.ChangeColorFragement;
 import fragment.ImageSpanFragment;
 import fragment.*;
 import bezier.BezierFragment;
@@ -120,6 +121,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_24:
                 fragment = new PullableLayoutFragment();
+                break;
+            case FRAGMENT_TYPE_25:
+                fragment = new ChangeColorFragement();
                 break;
             default:
                 break;
