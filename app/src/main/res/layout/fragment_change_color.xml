@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<change_color.ChangeColorLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ccll_change_color">
+    <ImageView
+        android:layout_marginTop="@dimen/space_30"
+        android:id="@+id/iv_change_color"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/color_666666"/>
+</change_color.ChangeColorLinearLayout>
