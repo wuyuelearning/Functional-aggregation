@@ -28,7 +28,7 @@ import android.util.Log;
  */
 public final class L {
     private static final String TAG = "lvmama";
-    private static boolean DEBUG = false;// 是否打印日志
+    private static boolean DEBUG = true;// 是否打印日志
 
     public static final void setDebug(boolean debug) {
         DEBUG = debug;

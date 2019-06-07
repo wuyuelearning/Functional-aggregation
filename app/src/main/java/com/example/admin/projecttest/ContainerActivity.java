@@ -16,6 +16,7 @@ import bezier.BezierFragment;
 import divide_edit_text.DivideEditTextFragment;
 import draw_board.DrawBoardFragment;
 import expandable_text_view.ExpandableTextViewFragment;
+import fragment_turn.FragmentTurnFragment;
 import mask_layer.MaskLayerFragment;
 import memorandum.MemorandumFragment;
 import mvp.MVPFragment;
@@ -124,6 +125,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_25:
                 fragment = new ChangeColorFragement();
+                break;
+            case FRAGMENT_TYPE_26:
+                fragment = new FragmentTurnFragment();
                 break;
             default:
                 break;

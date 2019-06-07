@@ -17,6 +17,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -56,9 +57,18 @@ public class MutilRVFragment extends Fragment {
         RecyclerView mRv = (RecyclerView) mView.findViewById(R.id.rv_multi);
         MultiAdapter mAdapter = new MultiAdapter(mContent, mData);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mRv.setLayoutManager(linearLayoutManager);
+
+        GridLayoutManager manager = new GridLayoutManager(getContext(), 6);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return 5;
+            }
+        });
+
+        mRv.setLayoutManager(manager);
         mRv.setAdapter(mAdapter);
 
 
@@ -66,11 +76,11 @@ public class MutilRVFragment extends Fragment {
         Bitmap inputBitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, false);
         Bitmap outputBitmap = Bitmap.createBitmap(inputBitmap);
 
-        RenderScript renderScript =RenderScript.create(mContent);
+        RenderScript renderScript = RenderScript.create(mContent);
         ScriptIntrinsicBlur s = ScriptIntrinsicBlur.create(renderScript, Element.U8_4(renderScript));
 
-        Allocation tmpIn = Allocation.createFromBitmap(renderScript,inputBitmap);
-        Allocation tmpOut = Allocation.createFromBitmap(renderScript,outputBitmap);
+        Allocation tmpIn = Allocation.createFromBitmap(renderScript, inputBitmap);
+        Allocation tmpOut = Allocation.createFromBitmap(renderScript, outputBitmap);
 
         s.setRadius(15);
         s.setInput(tmpIn);

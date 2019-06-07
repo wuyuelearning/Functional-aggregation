@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContainerActivity"/>
+        <activity android:name="fragment_turn.FragmentTurnActivity"/>
     </application>
 
 </manifest>
