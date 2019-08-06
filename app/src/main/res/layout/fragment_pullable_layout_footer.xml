@@ -12,7 +12,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/space_10"
-        android:drawableLeft="@drawable/dk_arrow_right"
         android:text="上拉加载"
         android:textColor="@color/color_666666"
         android:textSize="@dimen/text_size_18" />

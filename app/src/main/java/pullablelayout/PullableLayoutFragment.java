@@ -105,7 +105,7 @@ public class PullableLayoutFragment extends Fragment {
         if (change) {
             mIvPullable.setBackgroundResource(R.drawable.bitmap2);
         } else {
-            mIvPullable.setBackgroundResource(R.drawable.pic_default);
+//            mIvPullable.setBackgroundResource(R.drawable.pic_default);
         }
         change = !change;
     }

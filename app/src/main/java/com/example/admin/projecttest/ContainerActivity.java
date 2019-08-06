@@ -19,6 +19,7 @@ import expandable_text_view.ExpandableTextViewFragment;
 import fragment_turn.FragmentTurnFragment;
 import mask_layer.MaskLayerFragment;
 import memorandum.MemorandumFragment;
+import multiple_choice.MultipleChoiceFragment;
 import mvp.MVPFragment;
 import pullablelayout.PullableLayoutFragment;
 import rec_linkage.RecyclerViewLinkageFragment;

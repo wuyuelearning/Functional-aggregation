@@ -1,4 +1,4 @@
-package common.RecycleViewAdapter;
+package multiple_choice;
 
 
 import android.content.Context;
@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import com.example.admin.projecttest.R;
 
 import java.util.List;
+
+import common.RecycleViewAdapter.RecycleViewCommonAdapter;
+import common.RecycleViewAdapter.ViewHolder;
 
 /**
  * Created by wuyue on 2018/6/6.

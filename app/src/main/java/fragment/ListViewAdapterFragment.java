@@ -57,7 +57,6 @@ public class ListViewAdapterFragment extends Fragment {
         mData = new ArrayList<>(Arrays.asList("hello", "world", "welcome"));
         setAdapter(SELECT_ADAPTER_1);
         mListView.setAdapter(mListViewAdapter);
-
     }
 
     private void setAdapter(int selectAdapter) {

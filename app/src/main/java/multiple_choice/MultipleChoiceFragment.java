@@ -1,4 +1,4 @@
-package fragment;
+package multiple_choice;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,9 +14,6 @@ import com.example.admin.projecttest.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import common.RecycleViewAdapter.MultipleChioceAdapter;
-import common.RecycleViewAdapter.MultipleChoiceBean;
 
 /**
  * Created by wuyue on 2018/6/6.

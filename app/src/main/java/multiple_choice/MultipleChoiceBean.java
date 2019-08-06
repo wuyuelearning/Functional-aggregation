@@ -1,4 +1,4 @@
-package common.RecycleViewAdapter;
+package multiple_choice;
 
 /**
  * Created by wuyue on 2018/6/6.

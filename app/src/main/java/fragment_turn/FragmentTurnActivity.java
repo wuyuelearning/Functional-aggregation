@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
-import com.didichuxing.doraemonkit.DoraemonKit;
 import com.example.admin.projecttest.R;
 
 /**

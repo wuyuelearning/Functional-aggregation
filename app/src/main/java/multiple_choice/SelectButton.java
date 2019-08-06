@@ -1,4 +1,4 @@
-package common.RecycleViewAdapter;
+package multiple_choice;
 
 import android.util.Log;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import com.example.admin.projecttest.R;
 
 import java.util.List;
+
+import multiple_choice.MultipleChoiceBean;
 
 /**
  * Created by admin on 2018/6/8.
