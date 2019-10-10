@@ -47,7 +47,7 @@ public class CarouselTextView extends LinearLayout {
 
     private void initView(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.layout_carousel_textview, this);
-        mTvContent = view.findViewById(R.id.tv_carousel_content);
+        mTvContent = (TextView) view.findViewById(R.id.tv_carousel_content);
         mHandler = new Handler();
         mRunnable = new Runnable() {
             @Override

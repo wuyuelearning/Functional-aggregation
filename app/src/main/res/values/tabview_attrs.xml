@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TabView">
+        <!--代表变色最终显示的颜色，这个颜色可以从选中图中用取色器获取。-->
+        <attr name="tabColor" format="color|integer" />
+        <!--代表默认显示的轮廓图。-->
+        <attr name="tabImage" format="reference" />
+        <!--代表选中后的图-->
+        <attr name="tabSelectedImage" format="reference" />
+        <!--代表要显示的标题-->
+        <attr name="tabTitle" format="string|reference" />
+    </declare-styleable>
+</resources>

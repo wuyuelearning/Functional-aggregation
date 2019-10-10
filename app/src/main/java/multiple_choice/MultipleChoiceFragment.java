@@ -39,7 +39,7 @@ public class MultipleChoiceFragment extends Fragment {
     }
 
     private void initView() {
-        mRecycleView = mRootView.findViewById(R.id.recycle_view);
+        mRecycleView =(RecyclerView) mRootView.findViewById(R.id.recycle_view);
         //  设置布局样式，不可少，缺少布局样式直接设置setAdapter是不行的
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

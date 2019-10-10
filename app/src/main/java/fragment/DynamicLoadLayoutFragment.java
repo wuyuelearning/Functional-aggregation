@@ -71,10 +71,10 @@ public class DynamicLoadLayoutFragment extends Fragment implements View.OnClickL
     }
 
     private void initLayoutView() {
-        availableCoupons = mRootView.findViewById(R.id.ll_available_coupon_item_fill);
-        editCouponCode = mRootView.findViewById(R.id.et_edit_coupon_code);
-        useCouponCode = mRootView.findViewById(R.id.tv_use_coupon_code);
-        submitCoupon = mRootView.findViewById(R.id.tv_submit_invincible_coupon);
+        availableCoupons =(LinearLayout) mRootView.findViewById(R.id.ll_available_coupon_item_fill);
+        editCouponCode =(EditText) mRootView.findViewById(R.id.et_edit_coupon_code);
+        useCouponCode =(TextView) mRootView.findViewById(R.id.tv_use_coupon_code);
+        submitCoupon = (TextView) mRootView.findViewById(R.id.tv_submit_invincible_coupon);
     }
 
     // 动态加载布局
@@ -91,12 +91,12 @@ public class DynamicLoadLayoutFragment extends Fragment implements View.OnClickL
 
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
         View mItemView = mLayoutInflater.inflate(R.layout.dynamic_load_layout_item, null);
-        discountAmount = mItemView.findViewById(R.id.tv_discount_amount);
-        couponType = mItemView.findViewById(R.id.tv_coupon_type);
-        couponName = mItemView.findViewById(R.id.tv_coupon_name);
-        couponExpireDate = mItemView.findViewById(R.id.tv_coupon_expired_date);
-        useCoupon = mItemView.findViewById(R.id.iv_use_coupon);
-        couponItemClick = mItemView.findViewById(R.id.coupon_item_left_layout);
+        discountAmount =(TextView) mItemView.findViewById(R.id.tv_discount_amount);
+        couponType = (TextView)mItemView.findViewById(R.id.tv_coupon_type);
+        couponName =(TextView) mItemView.findViewById(R.id.tv_coupon_name);
+        couponExpireDate = (TextView)mItemView.findViewById(R.id.tv_coupon_expired_date);
+        useCoupon =(ImageView) mItemView.findViewById(R.id.iv_use_coupon);
+        couponItemClick =(LinearLayout) mItemView.findViewById(R.id.coupon_item_left_layout);
         couponItemClick.setOnClickListener(this);
 
 

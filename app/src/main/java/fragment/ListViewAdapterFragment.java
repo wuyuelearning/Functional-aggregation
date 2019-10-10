@@ -52,7 +52,7 @@ public class ListViewAdapterFragment extends Fragment {
     }
 
     private void initView() {
-        mListView = mRootView.findViewById(R.id.id_lv_main);
+        mListView =(ListView) mRootView.findViewById(R.id.id_lv_main);
         //  此处的数据是String类型，实际的可以用Bean类，对应不同的控价 ，可以用Bean.xxx取出数据
         mData = new ArrayList<>(Arrays.asList("hello", "world", "welcome"));
         setAdapter(SELECT_ADAPTER_1);

@@ -131,7 +131,7 @@ public class CouponsRvAdapter extends RecyclerView.Adapter<CouponsRvAdapter.View
             mTvCouponPrice = (TextView) itemView.findViewById(R.id.tv_coupon_price);
             mTvCouponType = (TextView) itemView.findViewById(R.id.tv_coupon_type);
             mTvCouponCode = (TextView) itemView.findViewById(R.id.tv_coupon_code);
-            mCouponTitleLayout = itemView.findViewById(R.id.ll_coupon_title);
+            mCouponTitleLayout = (View)itemView.findViewById(R.id.ll_coupon_title);
             mCouponStatusIv = (ImageView) itemView.findViewById(R.id.iv_status);
 
             this.mListener = mListener;

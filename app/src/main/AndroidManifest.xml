@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".ContainerActivity"/>
         <activity android:name="fragment_turn.FragmentTurnActivity"/>
+        <activity android:name="we_chat_bottom_nav.WeChatBottomNavActivity"/>
     </application>
 
 </manifest>

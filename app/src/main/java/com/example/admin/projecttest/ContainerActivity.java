@@ -24,6 +24,7 @@ import mvp.MVPFragment;
 import pullablelayout.PullableLayoutFragment;
 import rec_linkage.RecyclerViewLinkageFragment;
 import tow_tab.TwoTabFragment;
+import we_chat_bottom_nav.fragment.WeChatNavStartFragment;
 
 import android.support.v4.app.Fragment;
 
@@ -129,6 +130,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_26:
                 fragment = new FragmentTurnFragment();
+                break;
+            case FRAGMENT_TYPE_27:
+                fragment = new WeChatNavStartFragment();
                 break;
             default:
                 break;

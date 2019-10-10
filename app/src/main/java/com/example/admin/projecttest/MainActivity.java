@@ -1,6 +1,7 @@
 package com.example.admin.projecttest;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import static utils.COMMONVALUE.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private static final String TAG = "MainActivity_Tag";
 
     private List<String> mMenu = new ArrayList<>();
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 //        MenuAdapter menuAdapter = new MenuAdapter(mMenu,getApplicationContext());
 
         mRecycleView.setAdapter(menuAdapter);
+
     }
 
     private void initData() {
@@ -82,5 +84,6 @@ public class MainActivity extends AppCompatActivity {
         mMenu.add(FRAGMENT_TYPE_24);
         mMenu.add(FRAGMENT_TYPE_25);
         mMenu.add(FRAGMENT_TYPE_26);
+        mMenu.add(FRAGMENT_TYPE_27);
     }
 }
