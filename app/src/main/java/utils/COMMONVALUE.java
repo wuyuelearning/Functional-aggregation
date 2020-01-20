@@ -55,4 +55,6 @@ public class COMMONVALUE {
     public static final String FRAGMENT_TYPE_25 = "ChangeColor";
     public static final String FRAGMENT_TYPE_26 = "FragmentTurn";
     public static final String FRAGMENT_TYPE_27 = "WeChatNav";
+    public static final String FRAGMENT_TYPE_28 = "EventBus";
+    public static final String FRAGMENT_TYPE_29 = "VerificationCode";
 }

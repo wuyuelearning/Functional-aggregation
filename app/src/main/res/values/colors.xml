@@ -8,4 +8,7 @@
     <color name="color_f9892e">#F9892E</color>
     <color name="color_666666">#666666</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="color_d8d8d8">#d8d8d8</color>
+    <color name="msgCodeErrorHintColor">#FFFF5465</color>
+
 </resources>

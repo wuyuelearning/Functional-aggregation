@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import MutilRecy.MutilRVFragment;
 import callbacktest.CallBackFragment;
 import change_color.ChangeColorFragement;
+import eventbus.EventBusFragment;
 import fragment.ImageSpanFragment;
 import fragment.*;
 import bezier.BezierFragment;
@@ -24,6 +25,7 @@ import mvp.MVPFragment;
 import pullablelayout.PullableLayoutFragment;
 import rec_linkage.RecyclerViewLinkageFragment;
 import tow_tab.TwoTabFragment;
+import verification_code.VerificationCodeFragment;
 import we_chat_bottom_nav.fragment.WeChatNavStartFragment;
 
 import android.support.v4.app.Fragment;
@@ -133,6 +135,12 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case FRAGMENT_TYPE_27:
                 fragment = new WeChatNavStartFragment();
+                break;
+            case FRAGMENT_TYPE_28:
+                fragment = new EventBusFragment();
+                break;
+            case FRAGMENT_TYPE_29:
+                fragment = new VerificationCodeFragment();
                 break;
             default:
                 break;

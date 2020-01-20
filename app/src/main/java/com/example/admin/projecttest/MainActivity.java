@@ -85,5 +85,7 @@ public class MainActivity extends Activity {
         mMenu.add(FRAGMENT_TYPE_25);
         mMenu.add(FRAGMENT_TYPE_26);
         mMenu.add(FRAGMENT_TYPE_27);
+        mMenu.add(FRAGMENT_TYPE_28);
+        mMenu.add(FRAGMENT_TYPE_29);
     }
 }
